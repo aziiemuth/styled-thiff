@@ -1,6 +1,7 @@
 {
   "name": "styled-thiff",
   "version": "0.1.7",
+  "description": "A beautiful and customizable React component library built with styled-components. Includes Header, Footer, Card, Button, Sidebar, and Navbar components with multiple variants.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -19,18 +20,50 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "keywords": [
+    "react",
+    "components",
+    "styled-components",
+    "ui",
+    "design-system",
+    "nextjs",
+    "header",
+    "footer",
+    "card",
+    "button",
+    "sidebar",
+    "navbar",
+    "ui-components",
+    "react-components"
+  ],
+  "author": "Athiief <aziiemuth@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aziiemuth/styled-thiff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aziiemuth/styled-thiff/issues"
+  },
+  "homepage": "https://github.com/aziiemuth/styled-thiff#readme",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "styled-components": ">=5.0.0",
+    "lucide-react": ">=0.400.0"
+  },
   "dependencies": {
-    "babel-plugin-styled-components": "^2.1.4",
-    "lucide-react": "^0.553.0",
-    "next": "^16.1.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "sass": "^1.93.3",
-    "styled-components": "^6.1.19"
+    "babel-plugin-styled-components": "^2.1.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4"
+    "eslint-config-next": "15.5.4",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "sass": "^1.93.3",
+    "styled-components": "^6.1.19",
+    "lucide-react": "^0.553.0"
   }
 }
