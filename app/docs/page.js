@@ -2,15 +2,15 @@
 
 import styled from "styled-components";
 import { useState } from "react";
-import ComponentDoc from "styled-thiff/components/ComponentDoc";
-import CodeBlock from "styled-thiff/components/CodeBlock";
-import HeaderVariant from "styled-thiff/components/HeaderVariant";
-import CardVariant from "styled-thiff/components/CardVariant";
-import ButtonVariant from "styled-thiff/components/ButtonVariant";
-import SidebarVariant from "styled-thiff/components/SidebarVariant";
-import FooterVariant from "styled-thiff/components/FooterVariant";
-import NavbarVariant from "styled-thiff/components/NavbarVariant";
-import DarkModeToggle from "styled-thiff/components/DarkModeToggle";
+import ComponentDoc from "@/components/ComponentDoc";
+import CodeBlock from "@/components/CodeBlock";
+import HeaderVariant from "@/components/HeaderVariant";
+import CardVariant from "@/components/CardVariant";
+import ButtonVariant from "@/components/ButtonVariant";
+import SidebarVariant from "@/components/SidebarVariant";
+import FooterVariant from "@/components/FooterVariant";
+import NavbarVariant from "@/components/NavbarVariant";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import { Home, Package, Users, Settings } from "lucide-react";
 
 const PageWrapper = styled.div`
