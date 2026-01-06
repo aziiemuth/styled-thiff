@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import ComponentDoc from "@/components/ComponentDoc";
+import CodeBlock from "@/components/CodeBlock";
 import HeaderVariant from "@/components/HeaderVariant";
 import CardVariant from "@/components/CardVariant";
 import ButtonVariant from "@/components/ButtonVariant";
@@ -108,10 +109,126 @@ const Content = styled.main`
   min-width: 0;
 `;
 
+const InstallationSection = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 32px;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 32px;
+  font-weight: 700;
+  color: #009688;
+  margin-bottom: 32px;
+  border-bottom: 3px solid #009688;
+  padding-bottom: 16px;
+`;
+
+const InstallationContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+const Step = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+`;
+
+const StepNumber = styled.div`
+  background: linear-gradient(135deg, #009688, #26a69a);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+`;
+
+const StepContent = styled.div`
+  flex: 1;
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #263238;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #546e7a;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  code {
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: #009688;
+  }
+`;
+
+const InfoBox = styled.div`
+  background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+  border-left: 4px solid #009688;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 16px;
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #00796b;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: #00695c;
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #009688;
+        font-weight: 700;
+      }
+
+      code {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Fira Code', monospace;
+        font-size: 13px;
+        color: #00796b;
+      }
+    }
+  }
+`;
+
+
 export default function DocsPage() {
-  const [activeSection, setActiveSection] = useState("header");
+  const [activeSection, setActiveSection] = useState("installation");
 
   const sections = [
+    { id: "installation", label: "Installation" },
     { id: "header", label: "Header" },
     { id: "navbar", label: "Navbar" },
     { id: "card", label: "Card" },
@@ -149,6 +266,130 @@ export default function DocsPage() {
         </Sidebar>
 
         <Content>
+          {activeSection === "installation" && (
+            <InstallationSection>
+              <SectionTitle>📦 Installation Guide</SectionTitle>
+              <InstallationContent>
+                <Step>
+                  <StepNumber>1</StepNumber>
+                  <StepContent>
+                    <h3>Install Package</h3>
+                    <CodeBlock
+                      code={`npm install styled-thiff styled-components`}
+                      title="Terminal"
+                    />
+                    <p>Install icon library (pilih salah satu atau keduanya):</p>
+                    <CodeBlock
+                      code={`# Option 1: Lucide React (Recommended)
+npm install lucide-react
+
+# Option 2: React Icons
+npm install react-icons
+
+# Option 3: Both
+npm install lucide-react react-icons`}
+                      title="Terminal"
+                    />
+                  </StepContent>
+                </Step>
+
+                <Step>
+                  <StepNumber>2</StepNumber>
+                  <StepContent>
+                    <h3>Configure Next.js</h3>
+                    <p>Tambahkan konfigurasi styled-components di <code>next.config.js</code>:</p>
+                    <CodeBlock
+                      code={`export default {
+  compiler: {
+    styledComponents: true,
+  },
+}`}
+                      title="next.config.js"
+                    />
+                  </StepContent>
+                </Step>
+
+                <Step>
+                  <StepNumber>3</H3>
+                  <StepContent>
+                    <h3>Setup Dark Mode (Optional)</h3>
+                    <p>Wrap aplikasi Anda dengan ThemeProvider di <code>app/layout.js</code>:</p>
+                    <CodeBlock
+                      code={`import { ThemeProvider } from "styled-thiff/components/ThemeProvider";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}`}
+                      title="app/layout.js"
+                    />
+                  </StepContent>
+                </Step>
+
+                <Step>
+                  <StepNumber>4</StepNumber>
+                  <StepContent>
+                    <h3>Start Using Components</h3>
+                    <CodeBlock
+                      code={`"use client";
+
+import {
+  HeaderVariant,
+  CardVariant,
+  ButtonVariant,
+} from "styled-thiff";
+
+export default function Page() {
+  return (
+    <div>
+      <HeaderVariant
+        variant="flat"
+        logo="My App"
+        menuItems={[
+          { label: "Home", href: "/" },
+          { label: "About", href: "/about" },
+        ]}
+        buttonText="Sign Up"
+      />
+
+      <CardVariant
+        variant="glass"
+        title="Welcome"
+        content="Get started with styled-thiff"
+        badge="NEW"
+      />
+
+      <ButtonVariant variant="primary">
+        Get Started
+      </ButtonVariant>
+    </div>
+  );
+}`}
+                      title="app/page.js"
+                    />
+                  </StepContent>
+                </Step>
+
+                <InfoBox>
+                  <h4>💡 Tips</h4>
+                  <ul>
+                    <li>Gunakan <code>"use client"</code> di top file untuk client components</li>
+                    <li>Dark mode otomatis tersimpan di localStorage</li>
+                    <li>Semua komponen sudah responsive by default</li>
+                    <li>Bisa pakai lucide-react atau react-icons untuk icons</li>
+                  </ul>
+                </InfoBox>
+              </InstallationContent>
+            </InstallationSection>
+          )}
+
           {activeSection === "header" && (
             <ComponentDoc
               title="HeaderVariant"
