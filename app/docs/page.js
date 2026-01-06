@@ -2,15 +2,15 @@
 
 import styled from "styled-components";
 import { useState } from "react";
-import ComponentDoc from "@/components/ComponentDoc";
-import CodeBlock from "@/components/CodeBlock";
-import HeaderVariant from "@/components/HeaderVariant";
-import CardVariant from "@/components/CardVariant";
-import ButtonVariant from "@/components/ButtonVariant";
-import SidebarVariant from "@/components/SidebarVariant";
-import FooterVariant from "@/components/FooterVariant";
-import NavbarVariant from "@/components/NavbarVariant";
-import DarkModeToggle from "@/components/DarkModeToggle";
+import ComponentDoc from "styled-thiff/components/ComponentDoc";
+import CodeBlock from "styled-thiff/components/CodeBlock";
+import HeaderVariant from "styled-thiff/components/HeaderVariant";
+import CardVariant from "styled-thiff/components/CardVariant";
+import ButtonVariant from "styled-thiff/components/ButtonVariant";
+import SidebarVariant from "styled-thiff/components/SidebarVariant";
+import FooterVariant from "styled-thiff/components/FooterVariant";
+import NavbarVariant from "styled-thiff/components/NavbarVariant";
+import DarkModeToggle from "styled-thiff/components/DarkModeToggle";
 import { Home, Package, Users, Settings } from "lucide-react";
 
 const PageWrapper = styled.div`
@@ -542,7 +542,7 @@ export default function Page() {
                       onButtonClick={() => alert("Button clicked!")}
                     />
                   ),
-                  code: `import HeaderVariant from "@/components/HeaderVariant";
+                  code: `import HeaderVariant from "styled-thiff/components/HeaderVariant";
 
 export default function MyPage() {
   return (
@@ -575,7 +575,7 @@ export default function MyPage() {
                       buttonText="Hire Us"
                     />
                   ),
-                  code: `import HeaderVariant from "@/components/HeaderVariant";
+                  code: `import HeaderVariant from "styled-thiff/components/HeaderVariant";
 
 export default function MyPage() {
   return (
@@ -602,7 +602,7 @@ export default function MyPage() {
                       searchPlaceholder="Cari produk..."
                     />
                   ),
-                  code: `import HeaderVariant from "@/components/HeaderVariant";
+                  code: `import HeaderVariant from "styled-thiff/components/HeaderVariant";
 
 export default function MyPage() {
   return (
@@ -686,7 +686,7 @@ export default function MyPage() {
                       notificationCount={3}
                     />
                   ),
-                  code: `import NavbarVariant from "@/components/NavbarVariant";
+                  code: `import NavbarVariant from "styled-thiff/components/NavbarVariant";
 
 export default function MyPage() {
   return (
@@ -712,7 +712,7 @@ export default function MyPage() {
                       notificationCount={5}
                     />
                   ),
-                  code: `import NavbarVariant from "@/components/NavbarVariant";
+                  code: `import NavbarVariant from "styled-thiff/components/NavbarVariant";
 
 export default function MyPage() {
   return (
@@ -738,7 +738,7 @@ export default function MyPage() {
                       notificationCount={2}
                     />
                   ),
-                  code: `import NavbarVariant from "@/components/NavbarVariant";
+                  code: `import NavbarVariant from "styled-thiff/components/NavbarVariant";
 
 export default function MyPage() {
   return (
@@ -813,7 +813,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import CardVariant from "@/components/CardVariant";
+                  code: `import CardVariant from "styled-thiff/components/CardVariant";
 
 export default function MyPage() {
   return (
@@ -839,7 +839,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import CardVariant from "@/components/CardVariant";
+                  code: `import CardVariant from "styled-thiff/components/CardVariant";
 
 export default function MyPage() {
   return (
@@ -865,7 +865,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import CardVariant from "@/components/CardVariant";
+                  code: `import CardVariant from "styled-thiff/components/CardVariant";
 
 export default function MyPage() {
   return (
@@ -890,7 +890,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import CardVariant from "@/components/CardVariant";
+                  code: `import CardVariant from "styled-thiff/components/CardVariant";
 
 export default function MyPage() {
   return (
@@ -951,7 +951,7 @@ export default function MyPage() {
                       Click Me
                     </ButtonVariant>
                   ),
-                  code: `import ButtonVariant from "@/components/ButtonVariant";
+                  code: `import ButtonVariant from "styled-thiff/components/ButtonVariant";
 
 export default function MyPage() {
   return (
@@ -972,7 +972,7 @@ export default function MyPage() {
                       Learn More
                     </ButtonVariant>
                   ),
-                  code: `import ButtonVariant from "@/components/ButtonVariant";
+                  code: `import ButtonVariant from "styled-thiff/components/ButtonVariant";
 
 export default function MyPage() {
   return (
@@ -990,7 +990,7 @@ export default function MyPage() {
                       Get Started
                     </ButtonVariant>
                   ),
-                  code: `import ButtonVariant from "@/components/ButtonVariant";
+                  code: `import ButtonVariant from "styled-thiff/components/ButtonVariant";
 
 export default function MyPage() {
   return (
@@ -1008,7 +1008,7 @@ export default function MyPage() {
                       Add to Cart
                     </ButtonVariant>
                   ),
-                  code: `import ButtonVariant from "@/components/ButtonVariant";
+                  code: `import ButtonVariant from "styled-thiff/components/ButtonVariant";
 
 export default function MyPage() {
   return (
@@ -1026,7 +1026,7 @@ export default function MyPage() {
                       Animated Button
                     </ButtonVariant>
                   ),
-                  code: `import ButtonVariant from "@/components/ButtonVariant";
+                  code: `import ButtonVariant from "styled-thiff/components/ButtonVariant";
 
 export default function MyPage() {
   return (
@@ -1092,7 +1092,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import SidebarVariant from "@/components/SidebarVariant";
+                  code: `import SidebarVariant from "styled-thiff/components/SidebarVariant";
 import { Home, Package, Users, Settings } from "lucide-react";
 
 export default function MyPage() {
@@ -1126,7 +1126,7 @@ export default function MyPage() {
                       />
                     </div>
                   ),
-                  code: `import SidebarVariant from "@/components/SidebarVariant";
+                  code: `import SidebarVariant from "styled-thiff/components/SidebarVariant";
 import { Home, Package, Settings } from "lucide-react";
 
 export default function MyPage() {
@@ -1186,7 +1186,7 @@ export default function MyPage() {
                       copyrightText="© 2025 My Company. All rights reserved."
                     />
                   ),
-                  code: `import FooterVariant from "@/components/FooterVariant";
+                  code: `import FooterVariant from "styled-thiff/components/FooterVariant";
 
 export default function MyPage() {
   return (
@@ -1211,7 +1211,7 @@ export default function MyPage() {
                       ]}
                     />
                   ),
-                  code: `import FooterVariant from "@/components/FooterVariant";
+                  code: `import FooterVariant from "styled-thiff/components/FooterVariant";
 
 export default function MyPage() {
   return (
@@ -1241,7 +1241,7 @@ export default function MyPage() {
                       ]}
                     />
                   ),
-                  code: `import FooterVariant from "@/components/FooterVariant";
+                  code: `import FooterVariant from "styled-thiff/components/FooterVariant";
 
 export default function MyPage() {
   return (
