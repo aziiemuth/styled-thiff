@@ -1,4 +1,3 @@
-import StyledComponentsRegistry from "./registry";
 import "./global.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -11,11 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
