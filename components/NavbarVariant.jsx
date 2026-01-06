@@ -10,7 +10,7 @@ const Navbar = styled.nav`
       : p.variant === "dark"
       ? "#1a202c"
       : p.variant === "transparent"
-      ? "rgba(255, 255, 255, 0.1)"
+      ? "linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%)"
       : "#009688"};
   color: #fff;
   padding: ${(p) => (p.variant === "gradient" ? "16px 32px" : "12px 24px")};

@@ -621,36 +621,69 @@ export default function MyPage() {
           {activeSection === "navbar" && (
             <ComponentDoc
               title="NavbarVariant"
-              description="Komponen navbar sederhana untuk navigasi top-level dengan area kiri dan kanan yang dapat dikustomisasi."
+              description="Komponen navbar dengan berbagai varian styling, search bar, dan icon buttons untuk navigasi aplikasi."
               props={[
+                {
+                  name: "variant",
+                  type: "string",
+                  default: '"default"',
+                  description: 'Varian navbar: "default", "gradient", "dark", "transparent"',
+                },
                 {
                   name: "title",
                   type: "string",
                   default: '"Yuk Styling"',
-                  description: "Judul yang ditampilkan di tengah navbar",
+                  description: "Judul yang ditampilkan di navbar",
                 },
                 {
                   name: "leftContent",
                   type: "ReactNode",
                   default: "undefined",
-                  description: "Konten yang ditampilkan di sisi kiri navbar",
+                  description: "Konten kustom di sisi kiri (untuk variant default)",
                 },
                 {
                   name: "rightContent",
                   type: "ReactNode",
                   default: "undefined",
-                  description: "Konten yang ditampilkan di sisi kanan navbar",
+                  description: "Konten kustom di sisi kanan (untuk variant default)",
+                },
+                {
+                  name: "showSearch",
+                  type: "boolean",
+                  default: "false",
+                  description: "Tampilkan search bar (untuk variant gradient & transparent)",
+                },
+                {
+                  name: "searchPlaceholder",
+                  type: "string",
+                  default: '"Search..."',
+                  description: "Placeholder text untuk search bar",
+                },
+                {
+                  name: "showIcons",
+                  type: "boolean",
+                  default: "false",
+                  description: "Tampilkan icon buttons (Heart, Cart, Bell)",
+                },
+                {
+                  name: "notificationCount",
+                  type: "number",
+                  default: "0",
+                  description: "Jumlah notifikasi untuk badge",
                 },
               ]}
               examples={[
                 {
-                  title: "Basic Navbar",
-                  description: "Navbar dengan title dan button di kiri dan kanan",
+                  title: "Gradient Navbar",
+                  description: "Navbar dengan gradient purple, search bar, dan icons",
                   preview: (
                     <NavbarVariant
-                      title="My Dashboard"
-                      leftContent={<button style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer'}}>☰ Menu</button>}
-                      rightContent={<button style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer'}}>🔔 Notifications</button>}
+                      variant="gradient"
+                      title="Premium Store"
+                      showSearch={true}
+                      searchPlaceholder="Search products..."
+                      showIcons={true}
+                      notificationCount={3}
                     />
                   ),
                   code: `import NavbarVariant from "@/components/NavbarVariant";
@@ -658,9 +691,64 @@ export default function MyPage() {
 export default function MyPage() {
   return (
     <NavbarVariant
-      title="My Dashboard"
-      leftContent={<button>☰ Menu</button>}
-      rightContent={<button>🔔 Notifications</button>}
+      variant="gradient"
+      title="Premium Store"
+      showSearch={true}
+      searchPlaceholder="Search products..."
+      showIcons={true}
+      notificationCount={3}
+    />
+  );
+}`,
+                },
+                {
+                  title: "Dark Navbar",
+                  description: "Navbar dengan dark theme dan modern layout",
+                  preview: (
+                    <NavbarVariant
+                      variant="dark"
+                      title="Modern Dashboard"
+                      showIcons={true}
+                      notificationCount={5}
+                    />
+                  ),
+                  code: `import NavbarVariant from "@/components/NavbarVariant";
+
+export default function MyPage() {
+  return (
+    <NavbarVariant
+      variant="dark"
+      title="Modern Dashboard"
+      showIcons={true}
+      notificationCount={5}
+    />
+  );
+}`,
+                },
+                {
+                  title: "Transparent Navbar",
+                  description: "Navbar dengan glassmorphism effect",
+                  preview: (
+                    <NavbarVariant
+                      variant="transparent"
+                      title="Glass Design"
+                      showSearch={true}
+                      searchPlaceholder="Find anything..."
+                      showIcons={true}
+                      notificationCount={2}
+                    />
+                  ),
+                  code: `import NavbarVariant from "@/components/NavbarVariant";
+
+export default function MyPage() {
+  return (
+    <NavbarVariant
+      variant="transparent"
+      title="Glass Design"
+      showSearch={true}
+      searchPlaceholder="Find anything..."
+      showIcons={true}
+      notificationCount={2}
     />
   );
 }`,
