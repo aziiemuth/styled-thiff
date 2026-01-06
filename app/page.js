@@ -374,6 +374,15 @@ export default function Page() {
                 image="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80"
               />
             </ComponentShowcase>
+
+            <ComponentShowcase>
+              <h3>✨ Pulse Card</h3>
+              <CardVariant
+                variant="pulse"
+                title="Animated Magic"
+                content="Kartu dengan animasi pulse yang menarik perhatian. Perfect untuk highlight fitur penting!"
+              />
+            </ComponentShowcase>
           </ComponentGrid>
         </LayoutSection>
 
@@ -409,6 +418,13 @@ export default function Page() {
                 onClick={() => alert("Icon button!")}
               >
                 Add to Cart
+              </ButtonVariant>
+              
+              <ButtonVariant 
+                variant="bounce" 
+                onClick={() => alert("Bounce button!")}
+              >
+                Animated Button
               </ButtonVariant>
             </ButtonGroup>
           </ComponentShowcase>

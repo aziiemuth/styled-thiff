@@ -8,6 +8,8 @@ const Card = styled.div`
       ? "rgba(255, 255, 255, 0.7)"
       : p.variant === "neon"
       ? "#1a1a2e"
+      : p.variant === "pulse"
+      ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
       : "#fff"};
   border-radius: ${(p) =>
     p.variant === "photo-left"
@@ -20,30 +22,50 @@ const Card = styled.div`
       ? "20px"
       : p.variant === "neon"
       ? "15px"
+      : p.variant === "pulse"
+      ? "16px"
       : "12px"};
   box-shadow: ${(p) =>
     p.variant === "glass"
       ? "0 8px 32px 0 rgba(31, 38, 135, 0.37)"
       : p.variant === "neon"
       ? "0 0 20px rgba(138, 43, 226, 0.5)"
+      : p.variant === "pulse"
+      ? "0 8px 24px rgba(102, 126, 234, 0.4)"
       : "0 3px 8px rgba(0, 0, 0, 0.08)"};
   border: ${(p) =>
     p.variant === "glass"
       ? "1.5px solid rgba(255, 255, 255, 0.18)"
       : p.variant === "neon"
       ? "2px solid #8a2be2"
+      : p.variant === "pulse"
+      ? "2px solid rgba(255, 255, 255, 0.3)"
       : "1.5px solid #e0e0e0"};
   outline: ${(p) =>
     p.variant === "glass"
       ? "1px solid rgba(138, 43, 226, 0.3)"
       : p.variant === "neon"
       ? "1px solid rgba(138, 43, 226, 0.5)"
+      : p.variant === "pulse"
+      ? "1px solid rgba(102, 126, 234, 0.5)"
       : "1px solid rgba(0, 0, 0, 0.05)"};
   overflow: hidden;
   display: ${(p) => (p.variant === "photo-left" ? "flex" : "block")};
   position: relative;
   transition: all 0.3s ease;
   backdrop-filter: ${(p) => (p.variant === "glass" ? "blur(10px)" : "none")};
+  animation: ${(p) => (p.variant === "pulse" ? "cardPulse 2s ease-in-out infinite" : "none")};
+
+  @keyframes cardPulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6), 0 0 20px rgba(118, 75, 162, 0.4);
+    }
+  }
 
   &:hover {
     outline-color: ${(p) =>
@@ -51,14 +73,19 @@ const Card = styled.div`
         ? "#8a2be2"
         : p.variant === "neon"
         ? "#ff00ff"
+        : p.variant === "pulse"
+        ? "rgba(255, 255, 255, 0.8)"
         : "#009688"};
-    transform: translateY(-4px);
+    transform: ${(p) => (p.variant === "pulse" ? "scale(1.05)" : "translateY(-4px)")};
     box-shadow: ${(p) =>
       p.variant === "glass"
         ? "0 12px 40px 0 rgba(138, 43, 226, 0.5)"
         : p.variant === "neon"
         ? "0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6)"
+        : p.variant === "pulse"
+        ? "0 16px 40px rgba(102, 126, 234, 0.7), 0 0 30px rgba(118, 75, 162, 0.5)"
         : "0 6px 12px rgba(0, 137, 123, 0.15)"};
+    animation: ${(p) => (p.variant === "pulse" ? "none" : "initial")};
   }
 
   img {
@@ -68,8 +95,8 @@ const Card = styled.div`
   }
 
   .content {
-    padding: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "24px" : "16px")};
-    color: ${(p) => (p.variant === "neon" ? "#fff" : "inherit")};
+    padding: ${(p) => (p.variant === "glass" || p.variant === "neon" || p.variant === "pulse" ? "24px" : "16px")};
+    color: ${(p) => (p.variant === "neon" || p.variant === "pulse" ? "#fff" : "inherit")};
   }
 
   .overlay-text {
@@ -120,7 +147,7 @@ const Card = styled.div`
   }
 
   h3 {
-    font-size: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "20px" : "18px")};
+    font-size: ${(p) => (p.variant === "glass" || p.variant === "neon" || p.variant === "pulse" ? "20px" : "18px")};
     font-weight: 700;
     margin: 0 0 12px 0;
     color: ${(p) =>
@@ -128,9 +155,15 @@ const Card = styled.div`
         ? "#4a148c"
         : p.variant === "neon"
         ? "#ff00ff"
+        : p.variant === "pulse"
+        ? "#fff"
         : "#1e293b"};
     text-shadow: ${(p) =>
-      p.variant === "neon" ? "0 0 10px rgba(255, 0, 255, 0.7)" : "none"};
+      p.variant === "neon" 
+        ? "0 0 10px rgba(255, 0, 255, 0.7)" 
+        : p.variant === "pulse"
+        ? "0 2px 8px rgba(0, 0, 0, 0.3)"
+        : "none"};
   }
 
   p {
@@ -141,6 +174,8 @@ const Card = styled.div`
         ? "#5e35b1"
         : p.variant === "neon"
         ? "#b794f4"
+        : p.variant === "pulse"
+        ? "rgba(255, 255, 255, 0.9)"
         : "#546e7a"};
     margin: 0;
   }
@@ -251,6 +286,18 @@ export default function CardVariant({
         <NeonAccent />
         <div className="content">
           <NeonIcon>{neonIcon}</NeonIcon>
+          <h3>{title}</h3>
+          <p>{content}</p>
+        </div>
+      </Card>
+    );
+  }
+
+  if (variant === "pulse") {
+    return (
+      <Card variant={variant}>
+        <div className="content">
+          <NeonIcon>✨</NeonIcon>
           <h3>{title}</h3>
           <p>{content}</p>
         </div>
