@@ -7,6 +7,7 @@ import CardVariant from "@/components/CardVariant";
 import ButtonVariant from "@/components/ButtonVariant";
 import SidebarVariant from "@/components/SidebarVariant";
 import NavbarVariant from "@/components/NavbarVariant";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import { Home, Package, Users, Settings, Sparkles, Zap, Star } from "lucide-react";
 
 const PageWrapper = styled.div`
@@ -14,6 +15,10 @@ const PageWrapper = styled.div`
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
   flex-direction: column;
+
+  .dark & {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
 `;
 
 const MainContent = styled.main`
@@ -251,13 +256,13 @@ export default function Page() {
         leftContent={<button style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer', fontSize: '16px'}}>☰ Menu</button>}
         rightContent={
           <div style={{display: 'flex', gap: '16px', alignItems: 'center'}}>
+            <DarkModeToggle />
             <button 
               onClick={() => window.location.href = '/docs'}
               style={{background: 'transparent', border: '1px solid white', color: 'white', cursor: 'pointer', fontSize: '14px', padding: '6px 12px', borderRadius: '6px', fontWeight: '600'}}
             >
               📚 Docs
             </button>
-            <button style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer', fontSize: '16px'}}>🔔</button>
           </div>
         }
       />

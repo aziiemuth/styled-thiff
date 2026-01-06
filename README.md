@@ -10,14 +10,31 @@
 - 🎨 **6 Customizable Components** - Header, Footer, Card, Button, Sidebar, Navbar
 - 🎯 **Multiple Variants** - Each component has 2-4 different style variants
 - 💅 **Styled Components** - Built with styled-components for easy customization
+- 🌓 **Dark Mode Support** - Built-in dark mode with ThemeProvider
+- 🎭 **Icon Flexibility** - Works with both lucide-react and react-icons
 - 📱 **Responsive Design** - Mobile-friendly out of the box
 - 🚀 **Next.js Ready** - Optimized for Next.js projects
 - 📚 **Well Documented** - Comprehensive documentation and examples
 
 ## 📦 Installation
 
+### Basic Installation
+
 ```bash
-npm install styled-thiff styled-components lucide-react
+npm install styled-thiff styled-components
+```
+
+### With Icons (Choose One or Both)
+
+```bash
+# Option 1: Using Lucide React (Recommended)
+npm install lucide-react
+
+# Option 2: Using React Icons
+npm install react-icons
+
+# Option 3: Both (Maximum Flexibility)
+npm install lucide-react react-icons
 ```
 
 ### Peer Dependencies
@@ -25,7 +42,7 @@ npm install styled-thiff styled-components lucide-react
 Make sure you have these installed:
 
 ```bash
-npm install react react-dom styled-components lucide-react
+npm install react react-dom styled-components
 ```
 
 ### Next.js Configuration
@@ -41,6 +58,8 @@ export default {
 ```
 
 ## 🚀 Quick Start
+
+### Basic Usage
 
 ```jsx
 "use client";
@@ -69,6 +88,89 @@ export default function Page() {
 
       <ButtonVariant variant="primary">Get Started</ButtonVariant>
     </div>
+  );
+}
+```
+
+### Using Dark Mode
+
+Wrap your app with `ThemeProvider`:
+
+```jsx
+// app/layout.js
+import { ThemeProvider } from "styled-thiff/components/ThemeProvider";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+Then use the dark mode toggle:
+
+```jsx
+import DarkModeToggle from "styled-thiff/components/DarkModeToggle";
+
+export default function Navbar() {
+  return (
+    <nav>
+      <DarkModeToggle />
+    </nav>
+  );
+}
+```
+
+### Using with React Icons
+
+```jsx
+import { ButtonVariant } from "styled-thiff";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
+
+export default function MyComponent() {
+  return (
+    <>
+      <ButtonVariant
+        variant="primary"
+        icon={<FaShoppingCart />}
+        iconPosition="left"
+      >
+        Add to Cart
+      </ButtonVariant>
+
+      <ButtonVariant variant="outline" icon={<FaHeart />}>
+        Favorite
+      </ButtonVariant>
+    </>
+  );
+}
+```
+
+### Using with Lucide React
+
+```jsx
+import { ButtonVariant } from "styled-thiff";
+import { ShoppingCart, Heart } from "lucide-react";
+
+export default function MyComponent() {
+  return (
+    <>
+      <ButtonVariant
+        variant="primary"
+        icon={<ShoppingCart size={18} />}
+        iconPosition="left"
+      >
+        Add to Cart
+      </ButtonVariant>
+
+      <ButtonVariant variant="outline" icon={<Heart size={18} />}>
+        Favorite
+      </ButtonVariant>
+    </>
   );
 }
 ```
@@ -126,6 +228,8 @@ Navigation sidebar with multiple layouts.
 
 ```jsx
 import { Home, Settings } from "lucide-react";
+// or
+import { FaHome, FaCog } from "react-icons/fa";
 
 <SidebarVariant
   variant="classic"
@@ -167,6 +271,100 @@ Simple navbar for top-level navigation.
 />
 ```
 
+## 🌓 Dark Mode
+
+### Setup
+
+1. Wrap your app with `ThemeProvider`:
+
+```jsx
+import { ThemeProvider } from "styled-thiff/components/ThemeProvider";
+
+<ThemeProvider>
+  <YourApp />
+</ThemeProvider>;
+```
+
+2. Use the `useTheme` hook:
+
+```jsx
+import { useTheme } from "styled-thiff/components/ThemeProvider";
+
+function MyComponent() {
+  const { isDark, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme}>{isDark ? "Light Mode" : "Dark Mode"}</button>
+  );
+}
+```
+
+3. Or use the built-in toggle:
+
+```jsx
+import DarkModeToggle from "styled-thiff/components/DarkModeToggle";
+
+<DarkModeToggle />;
+```
+
+### CSS Variables
+
+The theme uses CSS variables that automatically switch:
+
+```css
+:root {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --text-primary: #263238;
+  --text-secondary: #546e7a;
+}
+
+.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e0;
+}
+```
+
+## 🎭 Icon Libraries
+
+### Lucide React (Recommended)
+
+```bash
+npm install lucide-react
+```
+
+```jsx
+import { Home, Settings, User } from "lucide-react";
+
+<ButtonVariant icon={<Home size={18} />}>Home</ButtonVariant>;
+```
+
+### React Icons
+
+```bash
+npm install react-icons
+```
+
+```jsx
+import { FaHome, FaCog, FaUser } from "react-icons/fa";
+import { AiFillHeart } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
+
+<ButtonVariant icon={<FaHome />}>Home</ButtonVariant>;
+```
+
+**Available Icon Sets in react-icons:**
+
+- `fa` - Font Awesome
+- `ai` - Ant Design Icons
+- `bi` - Bootstrap Icons
+- `fi` - Feather Icons
+- `md` - Material Design Icons
+- `io` - Ionicons
+- And many more!
+
 ## 🌐 Live Demo
 
 Check out the live demo and full documentation:
@@ -190,6 +388,42 @@ npm install
 
 # Run development server
 npm run dev
+```
+
+## 📝 Complete Installation Example
+
+```bash
+# 1. Create Next.js app
+npx create-next-app@latest my-app
+cd my-app
+
+# 2. Install styled-thiff and dependencies
+npm install styled-thiff styled-components lucide-react react-icons
+
+# 3. Configure Next.js (next.config.js)
+export default {
+  compiler: {
+    styledComponents: true,
+  },
+}
+
+# 4. Wrap with ThemeProvider (app/layout.js)
+import { ThemeProvider } from "styled-thiff/components/ThemeProvider";
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+
+# 5. Start using components!
+import { HeaderVariant, CardVariant, ButtonVariant } from "styled-thiff";
 ```
 
 ## 🤝 Contributing

@@ -1,15 +1,21 @@
+import StyledComponentsRegistry from "./registry";
 import "./global.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
-  title: "Yuk Styling - Styled Components Variant",
-  description: "Aplikasi demo penggunaan styled-components dengan berbagai varian styling.",
+  title: "Styled Components Showcase",
+  description: "Beautiful UI components built with styled-components",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
