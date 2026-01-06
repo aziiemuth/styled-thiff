@@ -678,7 +678,7 @@ export default function MyPage() {
                   name: "variant",
                   type: "string",
                   default: '"default"',
-                  description: 'Varian card: "default", "glass", "neon", "rounded", "photo-left", "overlay"',
+                  description: 'Varian card: "default", "glass", "neon", "rounded", "photo-left", "overlay", "pulse"',
                 },
                 {
                   name: "title",
@@ -790,6 +790,30 @@ export default function MyPage() {
   );
 }`,
                 },
+                {
+                  title: "Pulse Card",
+                  description: "Card dengan animasi pulse yang menarik perhatian",
+                  preview: (
+                    <div style={{ maxWidth: "400px" }}>
+                      <CardVariant
+                        variant="pulse"
+                        title="Animated Magic"
+                        content="Kartu dengan animasi pulse yang menarik perhatian. Perfect untuk highlight fitur penting!"
+                      />
+                    </div>
+                  ),
+                  code: `import CardVariant from "@/components/CardVariant";
+
+export default function MyPage() {
+  return (
+    <CardVariant
+      variant="pulse"
+      title="Animated Magic"
+      content="Kartu dengan animasi pulse yang menarik perhatian."
+    />
+  );
+}`,
+                },
               ]}
             />
           )}
@@ -803,7 +827,7 @@ export default function MyPage() {
                   name: "variant",
                   type: "string",
                   default: '"primary"',
-                  description: 'Varian button: "primary", "outline", "shadow", "icon"',
+                  description: 'Varian button: "primary", "outline", "shadow", "icon", "bounce"',
                 },
                 {
                   name: "children",
@@ -902,6 +926,27 @@ export default function MyPage() {
   return (
     <ButtonVariant variant="icon">
       Add to Cart
+    </ButtonVariant>
+  );
+}`,
+                },
+                {
+                  title: "Bounce Button",
+                  description: "Button dengan animasi bouncing yang eye-catching",
+                  preview: (
+                    <ButtonVariant variant="bounce" onClick={() => alert("Bounced!")}>
+                      Animated Button
+                    </ButtonVariant>
+                  ),
+                  code: `import ButtonVariant from "@/components/ButtonVariant";
+
+export default function MyPage() {
+  return (
+    <ButtonVariant 
+      variant="bounce" 
+      onClick={() => alert("Bounced!")}
+    >
+      Animated Button
     </ButtonVariant>
   );
 }`,
