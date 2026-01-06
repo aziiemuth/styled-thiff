@@ -310,7 +310,7 @@ npm install lucide-react react-icons`}
                 </Step>
 
                 <Step>
-                  <StepNumber>3</H3>
+                  <StepNumber>3</StepNumber>
                   <StepContent>
                     <h3>Setup Dark Mode (Optional)</h3>
                     <p>Wrap aplikasi Anda dengan ThemeProvider di <code>app/layout.js</code>:</p>
