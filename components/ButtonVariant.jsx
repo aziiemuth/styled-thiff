@@ -86,7 +86,7 @@ export default function ButtonVariant({
   const displayIcon = icon || defaultIcons[variant];
 
   return (
-    <ButtonStyled variant={variant} hasIcon={!!displayIcon} onClick={onClick}>
+    <ButtonStyled variant={variant} $hasIcon={!!displayIcon} onClick={onClick}>
       {iconPosition === "left" && displayIcon}
       {children}
       {iconPosition === "right" && displayIcon}
