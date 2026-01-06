@@ -22,6 +22,10 @@ const MainContent = styled.main`
   margin: 0 auto;
   padding: 0 24px 40px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0 16px 24px;
+  }
 `;
 
 const HeroSection = styled.section`
@@ -99,7 +103,7 @@ const SectionTitle = styled.h2`
 
 const ComponentGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
   margin-bottom: 48px;
   animation: fadeIn 0.8s ease;
@@ -115,7 +119,12 @@ const ComponentGrid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
   }
 `;
 
@@ -142,6 +151,19 @@ const ComponentShowcase = styled.div`
     align-items: center;
     gap: 8px;
   }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    border-radius: 12px;
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -150,6 +172,15 @@ const ButtonGroup = styled.div`
   gap: 16px;
   justify-content: center;
   margin-top: 24px;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    
+    button {
+      flex: 1 1 100%;
+      min-width: 0;
+    }
+  }
 `;
 
 const LayoutSection = styled.section`
@@ -165,9 +196,15 @@ const FullWidthSection = styled.section`
   margin-right: -50vw;
   margin-bottom: 48px;
   padding: 0 24px;
+  overflow-x: hidden;
 
   @media (max-width: 768px) {
     padding: 0 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 12px;
   }
 `;
 
@@ -184,6 +221,23 @@ const FullWidthShowcase = styled.div`
     gap: 8px;
     text-align: center;
     justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+
+    h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 15px;
+    }
   }
 `;
 

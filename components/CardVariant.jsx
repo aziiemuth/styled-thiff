@@ -82,6 +82,43 @@ const Card = styled.div`
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    flex-direction: ${(p) => (p.variant === "photo-left" ? "column" : "row")};
+
+    img {
+      width: ${(p) => (p.variant === "photo-left" ? "100%" : "100%")};
+      height: ${(p) => (p.variant === "overlay" ? "180px" : "160px")};
+    }
+
+    .content {
+      padding: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "20px" : "14px")};
+    }
+
+    .overlay-text {
+      font-size: 16px;
+      bottom: 12px;
+      left: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    border-radius: ${(p) =>
+      p.variant === "rounded" ? "30px" : p.variant === "glass" ? "16px" : "10px"};
+
+    img {
+      height: ${(p) => (p.variant === "overlay" ? "160px" : "140px")};
+    }
+
+    .content {
+      padding: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "16px" : "12px")};
+    }
+
+    .overlay-text {
+      font-size: 15px;
+    }
+  }
+
   h3 {
     font-size: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "20px" : "18px")};
     font-weight: 700;
