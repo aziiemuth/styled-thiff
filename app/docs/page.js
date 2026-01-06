@@ -10,11 +10,16 @@ import ButtonVariant from "@/components/ButtonVariant";
 import SidebarVariant from "@/components/SidebarVariant";
 import FooterVariant from "@/components/FooterVariant";
 import NavbarVariant from "@/components/NavbarVariant";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import { Home, Package, Users, Settings } from "lucide-react";
 
 const PageWrapper = styled.div`
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  .dark & {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
 `;
 
 const Header = styled.header`
@@ -23,6 +28,11 @@ const Header = styled.header`
   padding: 48px 24px;
   text-align: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .dark & {
+    background: linear-gradient(135deg, #00796b, #00695c);
+  }
 `;
 
 const Title = styled.h1`
@@ -36,6 +46,12 @@ const Subtitle = styled.p`
   opacity: 0.9;
   max-width: 600px;
   margin: 0 auto;
+`;
+
+const DarkModeToggleWrapper = styled.div`
+  position: absolute;
+  top: 24px;
+  right: 24px;
 `;
 
 const Container = styled.div`
@@ -66,6 +82,11 @@ const SidebarSticky = styled.div`
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  .dark & {
+    background: #2d3748;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const SidebarTitle = styled.h3`
@@ -73,6 +94,10 @@ const SidebarTitle = styled.h3`
   font-weight: 700;
   color: #009688;
   margin-bottom: 16px;
+
+  .dark & {
+    color: #4db6ac;
+  }
 `;
 
 const NavList = styled.ul`
@@ -102,6 +127,16 @@ const NavLink = styled.button`
     background: #e0f2f1;
     color: #009688;
   }
+
+  .dark & {
+    background: ${(p) => (p.$active ? "#00695c" : "transparent")};
+    color: ${(p) => (p.$active ? "#4db6ac" : "#cbd5e0")};
+
+    &:hover {
+      background: #00695c;
+      color: #4db6ac;
+    }
+  }
 `;
 
 const Content = styled.main`
@@ -115,6 +150,11 @@ const InstallationSection = styled.div`
   padding: 32px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   margin-bottom: 32px;
+
+  .dark & {
+    background: #2d3748;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -124,6 +164,11 @@ const SectionTitle = styled.h2`
   margin-bottom: 32px;
   border-bottom: 3px solid #009688;
   padding-bottom: 16px;
+
+  .dark & {
+    color: #4db6ac;
+    border-bottom-color: #4db6ac;
+  }
 `;
 
 const InstallationContent = styled.div`
@@ -160,12 +205,20 @@ const StepContent = styled.div`
     font-weight: 600;
     color: #263238;
     margin-bottom: 12px;
+
+    .dark & {
+      color: #f7fafc;
+    }
   }
 
   p {
     color: #546e7a;
     margin-bottom: 16px;
     line-height: 1.6;
+
+    .dark & {
+      color: #cbd5e0;
+    }
   }
 
   code {
@@ -175,6 +228,11 @@ const StepContent = styled.div`
     font-family: 'Fira Code', monospace;
     font-size: 14px;
     color: #009688;
+
+    .dark & {
+      background: #1a202c;
+      color: #4db6ac;
+    }
   }
 `;
 
@@ -240,6 +298,9 @@ export default function DocsPage() {
   return (
     <PageWrapper>
       <Header>
+        <DarkModeToggleWrapper>
+          <DarkModeToggle />
+        </DarkModeToggleWrapper>
         <Title>📚 Component Documentation</Title>
         <Subtitle>
           Panduan lengkap penggunaan komponen design system dengan contoh kode yang siap digunakan
