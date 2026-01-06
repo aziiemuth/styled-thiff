@@ -54,6 +54,33 @@ const DarkModeToggleWrapper = styled.div`
   right: 24px;
 `;
 
+const BackButtonWrapper = styled.div`
+  position: absolute;
+  top: 24px;
+  left: 24px;
+`;
+
+const BackButton = styled.button`
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateX(-4px);
+  }
+`;
+
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -298,6 +325,11 @@ export default function DocsPage() {
   return (
     <PageWrapper>
       <Header>
+        <BackButtonWrapper>
+          <BackButton onClick={() => window.location.href = '/'}>
+            ← Back to Home
+          </BackButton>
+        </BackButtonWrapper>
         <DarkModeToggleWrapper>
           <DarkModeToggle />
         </DarkModeToggleWrapper>
