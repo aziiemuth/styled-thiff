@@ -441,7 +441,7 @@ export default function Page() {
                 <InfoBox>
                   <h4>💡 Tips</h4>
                   <ul>
-                    <li>Gunakan <code>"use client"</code> di top file untuk client components</li>
+                    <li>Gunakan <code>&quot;use client&quot;</code> di top file untuk client components</li>
                     <li>Dark mode otomatis tersimpan di localStorage</li>
                     <li>Semua komponen sudah responsive by default</li>
                     <li>Bisa pakai lucide-react atau react-icons untuk icons</li>
