@@ -330,6 +330,45 @@ export default function Page() {
         </FullWidthShowcase>
       </FullWidthSection>
 
+      {/* Navbar Variants Section */}
+      <FullWidthSection>
+        <SectionTitle>Navbar Variants</SectionTitle>
+        
+        <FullWidthShowcase>
+          <h3>🎨 Gradient Navbar</h3>
+          <NavbarVariant
+            variant="gradient"
+            title="Premium Store"
+            showSearch={true}
+            searchPlaceholder="Search products..."
+            showIcons={true}
+            notificationCount={3}
+          />
+        </FullWidthShowcase>
+
+        <FullWidthShowcase>
+          <h3>🌙 Dark Navbar</h3>
+          <NavbarVariant
+            variant="dark"
+            title="Modern Dashboard"
+            showIcons={true}
+            notificationCount={5}
+          />
+        </FullWidthShowcase>
+
+        <FullWidthShowcase>
+          <h3>✨ Transparent Navbar</h3>
+          <NavbarVariant
+            variant="transparent"
+            title="Glass Design"
+            showSearch={true}
+            searchPlaceholder="Find anything..."
+            showIcons={true}
+            notificationCount={2}
+          />
+        </FullWidthShowcase>
+      </FullWidthSection>
+
       <MainContent>
 
         {/* Cards Section */}
