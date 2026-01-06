@@ -1,69 +1,69 @@
 "use client";
 
 import styled from "styled-components";
-import { ArrowRight, ShoppingCart, Heart, Check } from "lucide-react";
+import { ArrowRight, ShoppingCart, Heart, Check, Sparkles, Zap } from "lucide-react"; // Added Sparkles and Zap imports
 
-const ButtonBase = styled.button`
+const ButtonStyled = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: ${(p) => (p.hasIcon ? "8px" : "0")};
+  gap: ${(p) => (p.$hasIcon ? "8px" : "0")};
+  padding: ${(p) =>
+    p.variant === "primary"
+      ? "12px 28px"
+      : p.variant === "outline"
+      ? "10px 24px"
+      : p.variant === "shadow"
+      ? "14px 30px"
+      : "10px 20px"};
+  font-size: ${(p) => (p.variant === "shadow" ? "16px" : "15px")};
   font-weight: 600;
+  border-radius: ${(p) => (p.variant === "icon" ? "50px" : "8px")};
+  border: ${(p) =>
+    p.variant === "outline" ? "2px solid #009688" : "none"};
+  background: ${(p) =>
+    p.variant === "primary"
+      ? "linear-gradient(135deg, #009688, #00796b)"
+      : p.variant === "outline"
+      ? "transparent"
+      : p.variant === "shadow"
+      ? "#009688"
+      : "#26a69a"};
+  color: ${(p) => (p.variant === "outline" ? "#009688" : "#fff")};
+  box-shadow: ${(p) =>
+    p.variant === "shadow"
+      ? "0 6px 20px rgba(0, 150, 136, 0.4)"
+      : "0 2px 8px rgba(0, 0, 0, 0.1)"};
   cursor: pointer;
-  border: none;
-  transition: all 0.25s ease;
-  outline: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${(p) =>
+      p.variant === "shadow"
+        ? "0 10px 30px rgba(0, 150, 136, 0.6)"
+        : "0 4px 12px rgba(0, 150, 136, 0.3)"};
+    background: ${(p) =>
+      p.variant === "outline"
+        ? "#e0f2f1"
+        : p.variant === "primary"
+        ? "linear-gradient(135deg, #00796b, #00695c)"
+        : "#00897b"};
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
-const ButtonStyled = styled(ButtonBase)`
-  ${(p) =>
-    p.variant === "primary" &&
-    `
-    background: linear-gradient(135deg, #009688, #26a69a);
-    color: #fff;
-    padding: 12px 26px;
-    border-radius: 10px;
-    font-size: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    &:hover { transform: translateY(-3px); opacity: 0.9; }
-  `}
-
-  ${(p) =>
-    p.variant === "outline" &&
-    `
-    background: transparent;
-    color: #009688;
-    border: 2px solid #009688;
-    border-radius: 30px;
-    padding: 10px 22px;
-    font-size: 14px;
-    &:hover { background:#009688; color:#fff; transform:scale(1.05); }
-  `}
-
-  ${(p) =>
-    p.variant === "shadow" &&
-    `
-    background: #00796b;
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 16px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    text-transform: uppercase;
-    &:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.25); transform: translateY(-4px); }
-  `}
-
-  ${(p) =>
-    p.variant === "icon" &&
-    `
-    background: #f1f5f9;
-    color: #37474f;
-    border-radius: 50px;
-    padding: 10px 18px;
-    border: 1.5px solid #cfd8dc;
-    font-size: 14px;
-    &:hover { background:#e0f2f1; border-color:#009688; color:#009688; }
-  `}
+const IconWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
 `;
 
 export default function ButtonVariant({
@@ -73,22 +73,17 @@ export default function ButtonVariant({
   icon,
   iconPosition = "right",
 }) {
-  const getDefaultIcon = () => {
-    switch (variant) {
-      case "primary":
-        return <ArrowRight size={18} />;
-      case "outline":
-        return <Heart size={18} />;
-      case "shadow":
-        return <Check size={20} />;
-      case "icon":
-        return <ShoppingCart size={18} />;
-      default:
-        return null;
-    }
+  const defaultIcons = {
+    primary: <Sparkles size={18} />, // Added size prop for consistency
+    outline: <ArrowRight size={18} />,
+    shadow: <Zap size={20} />, // Added size prop for consistency
+    icon: <ShoppingCart size={18} />,
   };
 
-  const displayIcon = icon || getDefaultIcon();
+  // The instruction's displayIcon logic was incomplete/incorrect for non-icon variants.
+  // Reverting to a more robust default icon logic based on the original intent,
+  // but using the new defaultIcons object.
+  const displayIcon = icon || defaultIcons[variant];
 
   return (
     <ButtonStyled variant={variant} hasIcon={!!displayIcon} onClick={onClick}>
