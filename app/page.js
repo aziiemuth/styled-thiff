@@ -464,6 +464,50 @@ export default function Page() {
               />
             </ComponentShowcase>
 
+            <ComponentShowcase>
+              <h3>🌙 Dark Sidebar</h3>
+              <SidebarVariant
+                variant="dark"
+                logoText="Dark Panel"
+                menuItems={[
+                  { id: "home", label: "Home", icon: Home },
+                  { id: "products", label: "Products", icon: Package },
+                  { id: "users", label: "Users", icon: Users },
+                  { id: "settings", label: "Settings", icon: Settings },
+                ]}
+                setActiveComponent={(active) => console.log("Dark Active:", active)}
+              />
+            </ComponentShowcase>
+
+            <ComponentShowcase>
+              <h3>🎨 Gradient Sidebar</h3>
+              <SidebarVariant
+                variant="gradient"
+                logoText="Gradient UI"
+                menuItems={[
+                  { id: "home", label: "Home", icon: Home },
+                  { id: "products", label: "Products", icon: Package },
+                  { id: "users", label: "Users", icon: Users },
+                  { id: "settings", label: "Settings", icon: Settings },
+                ]}
+                setActiveComponent={(active) => console.log("Gradient Active:", active)}
+              />
+            </ComponentShowcase>
+
+            <ComponentShowcase>
+              <h3>📦 Compact Sidebar</h3>
+              <SidebarVariant
+                variant="compact"
+                logoText="Compact"
+                menuItems={[
+                  { id: "home", label: "Home", icon: Home },
+                  { id: "products", label: "Products", icon: Package },
+                  { id: "users", label: "Users", icon: Users },
+                  { id: "settings", label: "Settings", icon: Settings },
+                ]}
+                setActiveComponent={(active) => console.log("Compact Active:", active)}
+              />
+            </ComponentShowcase>
 
           </ComponentGrid>
         </LayoutSection>

@@ -48,6 +48,44 @@ const SidebarWrapper = styled.div`
     top: 80px;
   `}
 
+  ${(p) =>
+    p.variant === "dark" &&
+    `
+    width: 260px;
+    background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%);
+    border-right: 3px solid #667eea;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.3);
+  `}
+
+  ${(p) =>
+    p.variant === "gradient" &&
+    `
+    width: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  `}
+
+  ${(p) =>
+    p.variant === "compact" &&
+    `
+    width: 200px;
+    background: #ffffff;
+    border-right: 2px solid #009688;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 2px 0 8px rgba(0, 150, 136, 0.1);
+  `}
+
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
@@ -63,11 +101,20 @@ const SidebarWrapper = styled.div`
 
 const Logo = styled.h3`
   font-weight: 700;
-  font-size: ${(p) => (p.variant === "minimal" ? "0" : "20px")};
-  color: #009688;
+  font-size: ${(p) => (p.variant === "minimal" ? "0" : p.variant === "compact" ? "18px" : "20px")};
+  color: ${(p) =>
+    p.variant === "dark"
+      ? "#fff"
+      : p.variant === "gradient"
+      ? "#fff"
+      : "#009688"};
   text-align: center;
-  margin-bottom: ${(p) => (p.variant === "minimal" ? "0" : "12px")};
+  margin-bottom: ${(p) => (p.variant === "minimal" ? "0" : p.variant === "compact" ? "8px" : "12px")};
   transition: all 0.3s ease;
+  text-shadow: ${(p) =>
+    p.variant === "dark" || p.variant === "gradient"
+      ? "0 2px 4px rgba(0, 0, 0, 0.3)"
+      : "none"};
 
   @media (max-width: 768px) {
     display: none;
@@ -77,7 +124,7 @@ const Logo = styled.h3`
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: ${(p) => (p.variant === "compact" ? "8px" : "12px")};
 
   @media (max-width: 768px) {
     flex-direction: row;
@@ -87,28 +134,88 @@ const Nav = styled.nav`
 const NavButton = styled.button`
   display: flex;
   align-items: center;
-  gap: ${(p) => (p.variant === "minimal" ? "0" : "10px")};
+  gap: ${(p) => (p.variant === "minimal" ? "0" : p.variant === "compact" ? "8px" : "10px")};
   justify-content: ${(p) => (p.variant === "minimal" ? "center" : "flex-start")};
-  background: ${(p) => (p.$active ? "#009688" : "transparent")};
-  color: ${(p) => (p.$active ? "#fff" : "#263238")};
-  border: none;
-  border-radius: 10px;
+  background: ${(p) =>
+    p.$active
+      ? p.variant === "dark"
+        ? "#667eea"
+        : p.variant === "gradient"
+        ? "rgba(255, 255, 255, 0.25)"
+        : p.variant === "compact"
+        ? "#009688"
+        : "#009688"
+      : "transparent"};
+  color: ${(p) =>
+    p.$active
+      ? "#fff"
+      : p.variant === "dark"
+      ? "#cbd5e0"
+      : p.variant === "gradient"
+      ? "#fff"
+      : "#263238"};
+  border: ${(p) =>
+    p.variant === "gradient" && p.$active
+      ? "1px solid rgba(255, 255, 255, 0.4)"
+      : "none"};
+  border-radius: ${(p) => (p.variant === "compact" ? "8px" : "10px")};
   font-weight: 600;
-  font-size: 15px;
+  font-size: ${(p) => (p.variant === "compact" ? "14px" : "15px")};
   padding: ${(p) =>
-    p.variant === "minimal" ? "10px" : p.variant === "floating" ? "12px" : "10px 14px"};
-  width: 100%;
+    p.variant === "minimal"
+      ? "10px"
+      : p.variant === "floating"
+      ? "12px"
+      : p.variant === "compact"
+      ? "8px 12px"
+      : p.variant === "dark" || p.variant === "gradient"
+      ? "12px 16px"
+      : "10px 14px"};
+  width: 100%;;
   transition: all 0.25s ease;
   cursor: pointer;
+  backdrop-filter: ${(p) =>
+    p.variant === "gradient" && p.$active ? "blur(5px)" : "none"};
 
   svg {
-    color: ${(p) => (p.$active ? "#fff" : "#009688")};
+    color: ${(p) =>
+      p.$active
+        ? "#fff"
+        : p.variant === "dark"
+        ? "#667eea"
+        : p.variant === "gradient"
+        ? "rgba(255, 255, 255, 0.9)"
+        : "#009688"};
     transition: color 0.2s ease;
   }
 
   &:hover {
-    background: ${(p) => (p.$active ? "#00796b" : "rgba(0,137,123,0.1)")};
-    color: ${(p) => (p.$active ? "#fff" : "#00796b")};
+    background: ${(p) =>
+      p.$active
+        ? p.variant === "dark"
+          ? "#7c3aed"
+          : p.variant === "gradient"
+          ? "rgba(255, 255, 255, 0.35)"
+          : p.variant === "compact"
+          ? "#00796b"
+          : "#00796b"
+        : p.variant === "dark"
+        ? "rgba(102, 126, 234, 0.2)"
+        : p.variant === "gradient"
+        ? "rgba(255, 255, 255, 0.15)"
+        : "rgba(0,137,123,0.1)"};
+    color: ${(p) =>
+      p.$active
+        ? "#fff"
+        : p.variant === "dark"
+        ? "#fff"
+        : p.variant === "gradient"
+        ? "#fff"
+        : "#00796b"};
+    transform: ${(p) =>
+      p.variant === "gradient" || p.variant === "dark"
+        ? "translateX(4px)"
+        : "none"};
   }
 `;
 
@@ -134,9 +241,19 @@ export default function SidebarVariant({
   return (
     <SidebarWrapper variant={variant}>
       <Logo variant={variant}>
-        {variant === "minimal" ? "" : variant === "floating" ? "UI Box" : logoText}
+        {variant === "minimal"
+          ? ""
+          : variant === "floating"
+          ? "UI Box"
+          : variant === "dark"
+          ? "Dark Panel"
+          : variant === "gradient"
+          ? "Gradient UI"
+          : variant === "compact"
+          ? "Compact"
+          : logoText}
       </Logo>
-      <Nav>
+      <Nav variant={variant}>
         {menuItems.map((item) => {
           const IconComponent = item.icon;
           return (
@@ -146,7 +263,7 @@ export default function SidebarVariant({
               $active={active === item.id}
               onClick={() => setActive(item.id)}
             >
-              <IconComponent size={20} />
+              <IconComponent size={variant === "compact" ? 18 : 20} />
               {variant !== "minimal" && item.label}
             </NavButton>
           );

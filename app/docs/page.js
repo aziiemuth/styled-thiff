@@ -1052,7 +1052,7 @@ export default function MyPage() {
                   name: "variant",
                   type: "string",
                   default: '"classic"',
-                  description: 'Varian sidebar: "classic", "minimal", "floating"',
+                  description: 'Varian sidebar: "classic", "minimal", "floating", "dark", "gradient", "compact"',
                 },
                 {
                   name: "logoText",
@@ -1136,6 +1136,111 @@ export default function MyPage() {
       menuItems={[
         { id: "home", label: "Home", icon: Home },
         { id: "products", label: "Products", icon: Package },
+        { id: "settings", label: "Settings", icon: Settings },
+      ]}
+    />
+  );
+}`,
+                },
+                {
+                  title: "Dark Sidebar",
+                  description: "Sidebar dengan dark theme dan gradient background",
+                  preview: (
+                    <div style={{ maxWidth: "270px" }}>
+                      <SidebarVariant
+                        variant="dark"
+                        logoText="Dark Panel"
+                        menuItems={[
+                          { id: "home", label: "Home", icon: Home },
+                          { id: "products", label: "Products", icon: Package },
+                          { id: "users", label: "Users", icon: Users },
+                          { id: "settings", label: "Settings", icon: Settings },
+                        ]}
+                      />
+                    </div>
+                  ),
+                  code: `import SidebarVariant from "styled-thiff/components/SidebarVariant";
+import { Home, Package, Users, Settings } from "lucide-react";
+
+export default function MyPage() {
+  return (
+    <SidebarVariant
+      variant="dark"
+      logoText="Dark Panel"
+      menuItems={[
+        { id: "home", label: "Home", icon: Home },
+        { id: "products", label: "Products", icon: Package },
+        { id: "users", label: "Users", icon: Users },
+        { id: "settings", label: "Settings", icon: Settings },
+      ]}
+    />
+  );
+}`,
+                },
+                {
+                  title: "Gradient Sidebar",
+                  description: "Sidebar dengan gradient purple yang menarik",
+                  preview: (
+                    <div style={{ maxWidth: "260px" }}>
+                      <SidebarVariant
+                        variant="gradient"
+                        logoText="Gradient UI"
+                        menuItems={[
+                          { id: "home", label: "Home", icon: Home },
+                          { id: "products", label: "Products", icon: Package },
+                          { id: "users", label: "Users", icon: Users },
+                          { id: "settings", label: "Settings", icon: Settings },
+                        ]}
+                      />
+                    </div>
+                  ),
+                  code: `import SidebarVariant from "styled-thiff/components/SidebarVariant";
+import { Home, Package, Users, Settings } from "lucide-react";
+
+export default function MyPage() {
+  return (
+    <SidebarVariant
+      variant="gradient"
+      logoText="Gradient UI"
+      menuItems={[
+        { id: "home", label: "Home", icon: Home },
+        { id: "products", label: "Products", icon: Package },
+        { id: "users", label: "Users", icon: Users },
+        { id: "settings", label: "Settings", icon: Settings },
+      ]}
+    />
+  );
+}`,
+                },
+                {
+                  title: "Compact Sidebar",
+                  description: "Sidebar compact dengan ukuran lebih kecil",
+                  preview: (
+                    <div style={{ maxWidth: "210px" }}>
+                      <SidebarVariant
+                        variant="compact"
+                        logoText="Compact"
+                        menuItems={[
+                          { id: "home", label: "Home", icon: Home },
+                          { id: "products", label: "Products", icon: Package },
+                          { id: "users", label: "Users", icon: Users },
+                          { id: "settings", label: "Settings", icon: Settings },
+                        ]}
+                      />
+                    </div>
+                  ),
+                  code: `import SidebarVariant from "styled-thiff/components/SidebarVariant";
+import { Home, Package, Users, Settings } from "lucide-react";
+
+export default function MyPage() {
+  return (
+    <SidebarVariant
+      variant="compact"
+      logoText="Compact"
+      menuItems={[
+        { id: "home", label: "Home", icon: Home },
+        { id: "products", label: "Products", icon: Package },
+        { id: "users", label: "Users", icon: Users },
         { id: "settings", label: "Settings", icon: Settings },
       ]}
     />
