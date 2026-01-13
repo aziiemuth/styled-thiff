@@ -50,11 +50,15 @@ npm install react react-dom styled-components
 Add this to your `next.config.js` or `next.config.mjs`:
 
 ```js
-export default {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   compiler: {
-    styledComponents: true,
+    styledComponents: true
   },
-};
+  transpilePackages: ['styled-thiff']
+}
+
+export default nextConfig
 ```
 
 ## 🚀 Quick Start

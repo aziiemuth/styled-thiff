@@ -390,13 +390,18 @@ npm install lucide-react react-icons`}
                   <StepNumber>2</StepNumber>
                   <StepContent>
                     <h3>Configure Next.js</h3>
-                    <p>Tambahkan konfigurasi styled-components di <code>next.config.js</code>:</p>
+                    <p>Tambahkan konfigurasi styled-components dan transpilePackages di <code>next.config.js</code>:</p>
                     <CodeBlock
-                      code={`export default {
+                      code={`/** @type {import('next').NextConfig} */
+const nextConfig = {
   compiler: {
-    styledComponents: true,
+    styledComponents: true
   },
-}`}
+  transpilePackages: ['styled-thiff']
+}
+
+export default nextConfig
+`}
                       title="next.config.js"
                     />
                   </StepContent>
