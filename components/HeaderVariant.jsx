@@ -19,11 +19,11 @@ const HeaderWrapper = styled.header`
     p.variant === "angled"
       ? "linear-gradient(135deg, #0288d1, #26c6da)"
       : p.variant === "with-search"
-      ? "#ffffff"
+      ? "var(--bg-secondary, #ffffff)"
       : p.variant === "notification"
-      ? "#f9fbfc"
+      ? "var(--bg-secondary, #f9fbfc)"
       : "#009688"};
-  color: ${(p) => (p.variant === "flat" ? "#fff" : "#1e293b")};
+  color: ${(p) => (p.variant === "flat" ? "#fff" : "var(--text-primary, #1e293b)")};
   padding: ${(p) =>
     p.variant === "angled"
       ? "30px 50px"
@@ -70,7 +70,7 @@ const Logo = styled.h1`
       ? "#ffffff"
       : p.variant === "angled"
       ? "#ffffff"
-      : "#00796b"};
+      : "var(--text-primary, #00796b)"};
   margin: 0;
   opacity: 1;
 `;
@@ -80,7 +80,7 @@ const NavMenu = styled.nav`
   gap: 22px;
 
   a {
-    color: ${(p) => (p.variant === "angled" ? "#e0f7fa" : p.variant === "flat" ? "#ffffff" : "#37474f")};
+    color: ${(p) => (p.variant === "angled" ? "#e0f7fa" : p.variant === "flat" ? "#ffffff" : "var(--text-secondary, #37474f)")};
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -99,17 +99,18 @@ const NavMenu = styled.nav`
 `;
 
 const SearchBar = styled.input`
-  background: #f5f7f8;
-  border: 1.5px solid #e0e0e0;
+  background: var(--bg-secondary, #f5f7f8);
+  border: 1.5px solid var(--border-color, #e0e0e0);
   border-radius: 8px;
   padding: 8px 14px;
   width: ${(p) => (p.variant === "with-search" ? "260px" : "220px")};
   font-size: 14px;
   outline: none;
+  color: var(--text-primary, #1e293b);
 
   &:focus {
     border-color: #009688;
-    background: #ffffff;
+    background: var(--bg-secondary, #ffffff);
   }
 
   @media (max-width: 768px) {
@@ -123,7 +124,7 @@ const IconArea = styled.div`
   gap: 18px;
 
   svg {
-    color: #546e7a;
+    color: var(--text-secondary, #546e7a);
     cursor: pointer;
     transition: all 0.2s ease;
   }
@@ -149,7 +150,7 @@ const ProfileArea = styled.div`
   span {
     font-size: 15px;
     font-weight: 500;
-    color: #37474f;
+    color: var(--text-primary, #37474f);
   }
 `;
 

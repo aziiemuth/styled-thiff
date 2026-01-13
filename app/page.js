@@ -56,7 +56,7 @@ const HeroSection = styled.section`
 
   p {
     font-size: 18px;
-    color: #546e7a;
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 32px;
     line-height: 1.6;
@@ -90,7 +90,7 @@ const HeroSection = styled.section`
 const SectionTitle = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  color: #263238;
+  color: var(--text-primary);
   margin: 48px 0 24px;
   text-align: center;
   position: relative;
@@ -134,12 +134,12 @@ const ComponentGrid = styled.div`
 `;
 
 const ComponentShowcase = styled.div`
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px var(--shadow);
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 150, 136, 0.1);
+  border: 1px solid var(--border-color);
 
   &:hover {
     transform: translateY(-8px);
@@ -219,13 +219,17 @@ const FullWidthShowcase = styled.div`
   h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #009688;
+    color: #26a69a;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
     text-align: center;
     justify-content: center;
+  }
+
+  .dark & h3 {
+    color: #4db6ac;
   }
 
   @media (max-width: 768px) {

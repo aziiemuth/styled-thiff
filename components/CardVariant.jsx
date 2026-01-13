@@ -10,7 +10,7 @@ const Card = styled.div`
       ? "#1a1a2e"
       : p.variant === "pulse"
       ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-      : "#fff"};
+      : "var(--bg-secondary, #fff)"};
   border-radius: ${(p) =>
     p.variant === "photo-left"
       ? "10px"
@@ -157,7 +157,7 @@ const Card = styled.div`
         ? "#ff00ff"
         : p.variant === "pulse"
         ? "#fff"
-        : "#1e293b"};
+        : "var(--text-primary, #1e293b)"};
     text-shadow: ${(p) =>
       p.variant === "neon" 
         ? "0 0 10px rgba(255, 0, 255, 0.7)" 
@@ -176,7 +176,7 @@ const Card = styled.div`
         ? "#b794f4"
         : p.variant === "pulse"
         ? "rgba(255, 255, 255, 0.9)"
-        : "#546e7a"};
+        : "var(--text-secondary, #546e7a)"};
     margin: 0;
   }
 `;
