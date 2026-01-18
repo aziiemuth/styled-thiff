@@ -368,21 +368,10 @@ export default function DocsPage() {
                   <StepContent>
                     <h3>Install Package</h3>
                     <CodeBlock
-                      code={`npm install styled-thiff styled-components`}
+                      code={`npm install styled-thiff`}
                       title="Terminal"
                     />
-                    <p>Install icon library (pilih salah satu atau keduanya):</p>
-                    <CodeBlock
-                      code={`# Option 1: Lucide React (Recommended)
-npm install lucide-react
-
-# Option 2: React Icons
-npm install react-icons
-
-# Option 3: Both
-npm install lucide-react react-icons`}
-                      title="Terminal"
-                    />
+                    <p>Paket styled-thiff sudah termasuk styled-components, lucide-react, dan react-icons.</p>
                   </StepContent>
                 </Step>
 
@@ -390,13 +379,10 @@ npm install lucide-react react-icons`}
                   <StepNumber>2</StepNumber>
                   <StepContent>
                     <h3>Configure Next.js</h3>
-                    <p>Tambahkan konfigurasi styled-components dan transpilePackages di <code>next.config.js</code>:</p>
+                    <p>Tambahkan konfigurasi transpilePackages di <code>next.config.js</code>:</p>
                     <CodeBlock
                       code={`/** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    styledComponents: true
-  },
   transpilePackages: ['styled-thiff']
 }
 
@@ -481,7 +467,7 @@ export default function Page() {
                     <li>Gunakan <code>&quot;use client&quot;</code> di top file untuk client components</li>
                     <li>Dark mode otomatis tersimpan di localStorage</li>
                     <li>Semua komponen sudah responsive by default</li>
-                    <li>Bisa pakai lucide-react atau react-icons untuk icons</li>
+                    <li>styled-components, lucide-react, dan react-icons sudah termasuk dalam paket</li>
                   </ul>
                 </InfoBox>
               </InstallationContent>

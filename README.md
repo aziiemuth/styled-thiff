@@ -21,29 +21,10 @@
 ### Basic Installation
 
 ```bash
-npm install styled-thiff styled-components
+npm install styled-thiff
 ```
 
-### With Icons (Choose One or Both)
-
-```bash
-# Option 1: Using Lucide React (Recommended)
-npm install lucide-react
-
-# Option 2: Using React Icons
-npm install react-icons
-
-# Option 3: Both (Maximum Flexibility)
-npm install lucide-react react-icons
-```
-
-### Peer Dependencies
-
-Make sure you have these installed:
-
-```bash
-npm install react react-dom styled-components
-```
+> **Note**: styled-thiff sudah termasuk `styled-components`, `lucide-react`, dan `react-icons` sebagai dependencies. Anda tidak perlu menginstall package-package tersebut secara terpisah.
 
 ### Next.js Configuration
 
@@ -52,13 +33,10 @@ Add this to your `next.config.js` or `next.config.mjs`:
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    styledComponents: true
-  },
-  transpilePackages: ['styled-thiff']
-}
+  transpilePackages: ["styled-thiff"],
+};
 
-export default nextConfig
+export default nextConfig;
 ```
 
 ## 🚀 Quick Start
@@ -333,11 +311,9 @@ The theme uses CSS variables that automatically switch:
 
 ## 🎭 Icon Libraries
 
-### Lucide React (Recommended)
+stiled-thiff sudah termasuk `lucide-react` dan `react-icons`. Anda bisa langsung menggunakannya:
 
-```bash
-npm install lucide-react
-```
+### Lucide React (Recommended)
 
 ```jsx
 import { Home, Settings, User } from "lucide-react";
@@ -346,10 +322,6 @@ import { Home, Settings, User } from "lucide-react";
 ```
 
 ### React Icons
-
-```bash
-npm install react-icons
-```
 
 ```jsx
 import { FaHome, FaCog, FaUser } from "react-icons/fa";
@@ -401,14 +373,12 @@ npm run dev
 npx create-next-app@latest my-app
 cd my-app
 
-# 2. Install styled-thiff and dependencies
-npm install styled-thiff styled-components lucide-react react-icons
+# 2. Install styled-thiff
+npm install styled-thiff
 
 # 3. Configure Next.js (next.config.js)
 export default {
-  compiler: {
-    styledComponents: true,
-  },
+  transpilePackages: ['styled-thiff']
 }
 
 # 4. Wrap with ThemeProvider (app/layout.js)

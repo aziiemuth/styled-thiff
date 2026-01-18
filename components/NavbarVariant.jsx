@@ -5,44 +5,44 @@ import { Search, Bell, User, Menu, ShoppingCart, Heart } from "lucide-react";
 
 const Navbar = styled.nav`
   background: ${(p) =>
-    p.variant === "gradient"
+    p.$variant === "gradient"
       ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-      : p.variant === "dark"
+      : p.$variant === "dark"
       ? "#1a202c"
-      : p.variant === "transparent"
+      : p.$variant === "transparent"
       ? "linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%)"
       : "#009688"};
   color: #fff;
-  padding: ${(p) => (p.variant === "gradient" ? "16px 32px" : "12px 24px")};
+  padding: ${(p) => (p.$variant === "gradient" ? "16px 32px" : "12px 24px")};
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: ${(p) =>
-    p.variant === "dark"
+    p.$variant === "dark"
       ? "3px solid #667eea"
-      : p.variant === "transparent"
+      : p.$variant === "transparent"
       ? "1px solid rgba(255, 255, 255, 0.2)"
       : "2px solid #00796b"};
   box-shadow: ${(p) =>
-    p.variant === "gradient"
+    p.$variant === "gradient"
       ? "0 4px 16px rgba(102, 126, 234, 0.3)"
-      : p.variant === "dark"
+      : p.$variant === "dark"
       ? "0 4px 12px rgba(0, 0, 0, 0.5)"
-      : p.variant === "transparent"
+      : p.$variant === "transparent"
       ? "0 8px 32px rgba(31, 38, 135, 0.15)"
       : "0 3px 8px rgba(0, 0, 0, 0.08)"};
-  backdrop-filter: ${(p) => (p.variant === "transparent" ? "blur(10px)" : "none")};
-  border-radius: ${(p) => (p.variant === "gradient" ? "12px" : "0")};
-  margin: ${(p) => (p.variant === "gradient" ? "0 0 16px 0" : "0")};
+  backdrop-filter: ${(p) => (p.$variant === "transparent" ? "blur(10px)" : "none")};
+  border-radius: ${(p) => (p.$variant === "gradient" ? "12px" : "0")};
+  margin: ${(p) => (p.$variant === "gradient" ? "0 0 16px 0" : "0")};
   transition: all 0.3s ease;
 
   &:hover {
     box-shadow: ${(p) =>
-      p.variant === "gradient"
+      p.$variant === "gradient"
         ? "0 6px 20px rgba(102, 126, 234, 0.4)"
-        : p.variant === "dark"
+        : p.$variant === "dark"
         ? "0 6px 16px rgba(0, 0, 0, 0.6)"
-        : p.variant === "transparent"
+        : p.$variant === "transparent"
         ? "0 8px 32px rgba(31, 38, 135, 0.25)"
         : "0 4px 10px rgba(0, 0, 0, 0.12)"};
   }
@@ -55,14 +55,14 @@ const Navbar = styled.nav`
 
 const Title = styled.h2`
   margin: 0;
-  font-size: ${(p) => (p.variant === "gradient" ? "20px" : "18px")};
-  font-weight: ${(p) => (p.variant === "gradient" ? "700" : "600")};
+  font-size: ${(p) => (p.$variant === "gradient" ? "20px" : "18px")};
+  font-weight: ${(p) => (p.$variant === "gradient" ? "700" : "600")};
   text-shadow: ${(p) =>
-    p.variant === "gradient" || p.variant === "dark"
+    p.$variant === "gradient" || p.$variant === "dark"
       ? "0 2px 4px rgba(0, 0, 0, 0.2)"
       : "none"};
   flex: 1;
-  text-align: ${(p) => (p.variant === "default" ? "center" : "left")};
+  text-align: ${(p) => (p.$variant === "default" ? "center" : "left")};
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -72,29 +72,29 @@ const Title = styled.h2`
 const LeftContent = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(p) => (p.variant === "gradient" ? "16px" : "12px")};
+  gap: ${(p) => (p.$variant === "gradient" ? "16px" : "12px")};
 `;
 
 const RightContent = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(p) => (p.variant === "gradient" ? "16px" : "12px")};
+  gap: ${(p) => (p.$variant === "gradient" ? "16px" : "12px")};
 `;
 
 const NavButton = styled.button`
   background: ${(p) =>
-    p.variant === "gradient"
+    p.$variant === "gradient"
       ? "rgba(255, 255, 255, 0.2)"
-      : p.variant === "dark"
+      : p.$variant === "dark"
       ? "#667eea"
-      : p.variant === "transparent"
+      : p.$variant === "transparent"
       ? "rgba(255, 255, 255, 0.15)"
       : "rgba(255, 255, 255, 0.2)"};
   color: #fff;
   border: ${(p) =>
-    p.variant === "transparent" ? "1px solid rgba(255, 255, 255, 0.3)" : "none"};
-  padding: ${(p) => (p.variant === "gradient" ? "10px 20px" : "8px 16px")};
-  border-radius: ${(p) => (p.variant === "gradient" ? "8px" : "6px")};
+    p.$variant === "transparent" ? "1px solid rgba(255, 255, 255, 0.3)" : "none"};
+  padding: ${(p) => (p.$variant === "gradient" ? "10px 20px" : "8px 16px")};
+  border-radius: ${(p) => (p.$variant === "gradient" ? "8px" : "6px")};
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -102,15 +102,15 @@ const NavButton = styled.button`
   align-items: center;
   gap: 6px;
   transition: all 0.3s ease;
-  backdrop-filter: ${(p) => (p.variant === "transparent" ? "blur(5px)" : "none")};
+  backdrop-filter: ${(p) => (p.$variant === "transparent" ? "blur(5px)" : "none")};
 
   &:hover {
     background: ${(p) =>
-      p.variant === "gradient"
+      p.$variant === "gradient"
         ? "rgba(255, 255, 255, 0.3)"
-        : p.variant === "dark"
+        : p.$variant === "dark"
         ? "#7c3aed"
-        : p.variant === "transparent"
+        : p.$variant === "transparent"
         ? "rgba(255, 255, 255, 0.25)"
         : "rgba(255, 255, 255, 0.3)"};
     transform: translateY(-2px);
@@ -221,12 +221,12 @@ export default function NavbarVariant({
   // Gradient variant with search and icons
   if (variant === "gradient") {
     return (
-      <Navbar variant={variant}>
-        <LeftContent variant={variant}>
+      <Navbar $variant={variant}>
+        <LeftContent $variant={variant}>
           <IconButton>
             <Menu />
           </IconButton>
-          <Title variant={variant}>{title}</Title>
+          <Title $variant={variant}>{title}</Title>
         </LeftContent>
         {showSearch && (
           <SearchBar>
@@ -234,7 +234,7 @@ export default function NavbarVariant({
             <input type="text" placeholder={searchPlaceholder} />
           </SearchBar>
         )}
-        <RightContent variant={variant}>
+        <RightContent $variant={variant}>
           {showIcons && (
             <>
               <IconButton>
@@ -249,7 +249,7 @@ export default function NavbarVariant({
               </IconButton>
             </>
           )}
-          <NavButton variant={variant}>
+          <NavButton $variant={variant}>
             <User size={18} />
             Profile
           </NavButton>
@@ -261,11 +261,11 @@ export default function NavbarVariant({
   // Dark variant with modern layout
   if (variant === "dark") {
     return (
-      <Navbar variant={variant}>
-        <LeftContent variant={variant}>
-          <Title variant={variant}>{title}</Title>
+      <Navbar $variant={variant}>
+        <LeftContent $variant={variant}>
+          <Title $variant={variant}>{title}</Title>
         </LeftContent>
-        <RightContent variant={variant}>
+        <RightContent $variant={variant}>
           {showIcons && (
             <>
               <IconButton>
@@ -277,8 +277,8 @@ export default function NavbarVariant({
               </IconButton>
             </>
           )}
-          <NavButton variant={variant}>Sign In</NavButton>
-          <NavButton variant={variant}>Get Started</NavButton>
+          <NavButton $variant={variant}>Sign In</NavButton>
+          <NavButton $variant={variant}>Get Started</NavButton>
         </RightContent>
       </Navbar>
     );
@@ -287,9 +287,9 @@ export default function NavbarVariant({
   // Transparent variant with glassmorphism
   if (variant === "transparent") {
     return (
-      <Navbar variant={variant}>
-        <LeftContent variant={variant}>
-          <Title variant={variant}>{title}</Title>
+      <Navbar $variant={variant}>
+        <LeftContent $variant={variant}>
+          <Title $variant={variant}>{title}</Title>
         </LeftContent>
         {showSearch && (
           <SearchBar>
@@ -297,7 +297,7 @@ export default function NavbarVariant({
             <input type="text" placeholder={searchPlaceholder} />
           </SearchBar>
         )}
-        <RightContent variant={variant}>
+        <RightContent $variant={variant}>
           {showIcons && (
             <>
               <IconButton>
@@ -309,7 +309,7 @@ export default function NavbarVariant({
               </IconButton>
             </>
           )}
-          <NavButton variant={variant}>
+          <NavButton $variant={variant}>
             <User size={18} />
             Account
           </NavButton>
@@ -320,10 +320,10 @@ export default function NavbarVariant({
 
   // Default variant
   return (
-    <Navbar variant={variant}>
-      {leftContent && <LeftContent variant={variant}>{leftContent}</LeftContent>}
-      <Title variant={variant}>{title}</Title>
-      {rightContent && <RightContent variant={variant}>{rightContent}</RightContent>}
+    <Navbar $variant={variant}>
+      {leftContent && <LeftContent $variant={variant}>{leftContent}</LeftContent>}
+      <Title $variant={variant}>{title}</Title>
+      {rightContent && <RightContent $variant={variant}>{rightContent}</RightContent>}
     </Navbar>
   );
 }

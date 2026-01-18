@@ -9,40 +9,40 @@ const ButtonStyled = styled.button`
   justify-content: center;
   gap: ${(p) => (p.$hasIcon ? "8px" : "0")};
   padding: ${(p) =>
-    p.variant === "primary"
+    p.$variant === "primary"
       ? "12px 28px"
-      : p.variant === "outline"
+      : p.$variant === "outline"
       ? "10px 24px"
-      : p.variant === "shadow"
+      : p.$variant === "shadow"
       ? "14px 30px"
-      : p.variant === "bounce"
+      : p.$variant === "bounce"
       ? "14px 32px"
       : "10px 20px"};
-  font-size: ${(p) => (p.variant === "shadow" || p.variant === "bounce" ? "16px" : "15px")};
+  font-size: ${(p) => (p.$variant === "shadow" || p.$variant === "bounce" ? "16px" : "15px")};
   font-weight: 600;
-  border-radius: ${(p) => (p.variant === "icon" ? "50px" : p.variant === "bounce" ? "12px" : "8px")};
+  border-radius: ${(p) => (p.$variant === "icon" ? "50px" : p.$variant === "bounce" ? "12px" : "8px")};
   border: ${(p) =>
-    p.variant === "outline" ? "2px solid #009688" : "none"};
+    p.$variant === "outline" ? "2px solid #009688" : "none"};
   background: ${(p) =>
-    p.variant === "primary"
+    p.$variant === "primary"
       ? "linear-gradient(135deg, #009688, #00796b)"
-      : p.variant === "outline"
+      : p.$variant === "outline"
       ? "transparent"
-      : p.variant === "shadow"
+      : p.$variant === "shadow"
       ? "#009688"
-      : p.variant === "bounce"
+      : p.$variant === "bounce"
       ? "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
       : "#26a69a"};
-  color: ${(p) => (p.variant === "outline" ? "#009688" : "#fff")};
+  color: ${(p) => (p.$variant === "outline" ? "#009688" : "#fff")};
   box-shadow: ${(p) =>
-    p.variant === "shadow"
+    p.$variant === "shadow"
       ? "0 6px 20px rgba(0, 150, 136, 0.4)"
-      : p.variant === "bounce"
+      : p.$variant === "bounce"
       ? "0 8px 24px rgba(245, 87, 108, 0.4)"
       : "0 2px 8px rgba(0, 0, 0, 0.1)"};
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: ${(p) => (p.variant === "bounce" ? "buttonBounce 1.5s ease-in-out infinite" : "none")};
+  animation: ${(p) => (p.$variant === "bounce" ? "buttonBounce 1.5s ease-in-out infinite" : "none")};
 
   @keyframes buttonBounce {
     0%, 100% {
@@ -54,22 +54,22 @@ const ButtonStyled = styled.button`
   }
 
   &:hover {
-    transform: ${(p) => (p.variant === "bounce" ? "scale(1.05)" : "translateY(-2px)")};
+    transform: ${(p) => (p.$variant === "bounce" ? "scale(1.05)" : "translateY(-2px)")};
     box-shadow: ${(p) =>
-      p.variant === "shadow"
+      p.$variant === "shadow"
         ? "0 10px 30px rgba(0, 150, 136, 0.6)"
-        : p.variant === "bounce"
+        : p.$variant === "bounce"
         ? "0 12px 32px rgba(245, 87, 108, 0.6), 0 0 20px rgba(240, 147, 251, 0.4)"
         : "0 4px 12px rgba(0, 150, 136, 0.3)"};
     background: ${(p) =>
-      p.variant === "outline"
+      p.$variant === "outline"
         ? "#e0f2f1"
-        : p.variant === "primary"
+        : p.$variant === "primary"
         ? "linear-gradient(135deg, #00796b, #00695c)"
-        : p.variant === "bounce"
+        : p.$variant === "bounce"
         ? "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)"
         : "#00897b"};
-    animation: ${(p) => (p.variant === "bounce" ? "none" : "initial")};
+    animation: ${(p) => (p.$variant === "bounce" ? "none" : "initial")};
   }
 
   &:active {
@@ -108,7 +108,7 @@ export default function ButtonVariant({
   const displayIcon = icon || defaultIcons[variant];
 
   return (
-    <ButtonStyled variant={variant} $hasIcon={!!displayIcon} onClick={onClick}>
+    <ButtonStyled $variant={variant} $hasIcon={!!displayIcon} onClick={onClick}>
       {iconPosition === "left" && displayIcon}
       {children}
       {iconPosition === "right" && displayIcon}

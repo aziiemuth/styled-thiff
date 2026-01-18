@@ -8,36 +8,36 @@ const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: ${(p) =>
-    p.variant === "angled"
+    p.$variant === "angled"
       ? "space-between"
-      : p.variant === "with-search"
+      : p.$variant === "with-search"
       ? "space-between"
-      : p.variant === "notification"
+      : p.$variant === "notification"
       ? "space-between"
       : "space-around"};
   background: ${(p) =>
-    p.variant === "angled"
+    p.$variant === "angled"
       ? "linear-gradient(135deg, #0288d1, #26c6da)"
-      : p.variant === "with-search"
+      : p.$variant === "with-search"
       ? "var(--bg-secondary, #ffffff)"
-      : p.variant === "notification"
+      : p.$variant === "notification"
       ? "var(--bg-secondary, #f9fbfc)"
       : "#009688"};
-  color: ${(p) => (p.variant === "flat" ? "#fff" : "var(--text-primary, #1e293b)")};
+  color: ${(p) => (p.$variant === "flat" ? "#fff" : "var(--text-primary, #1e293b)")};
   padding: ${(p) =>
-    p.variant === "angled"
+    p.$variant === "angled"
       ? "30px 50px"
-      : p.variant === "flat"
+      : p.$variant === "flat"
       ? "26px 40px"
-      : p.variant === "with-search"
+      : p.$variant === "with-search"
       ? "20px 36px"
       : "22px 40px"};
   border-radius: ${(p) =>
-    p.variant === "angled"
+    p.$variant === "angled"
       ? "0 0 30px 30px"
-      : p.variant === "flat"
+      : p.$variant === "flat"
       ? "12px"
-      : p.variant === "notification"
+      : p.$variant === "notification"
       ? "20px"
       : "14px"};
   border: 1.5px solid #e0e0e0;
@@ -58,17 +58,17 @@ const HeaderWrapper = styled.header`
 const Logo = styled.h1`
   font-weight: 700;
   font-size: ${(p) =>
-    p.variant === "flat"
+    p.$variant === "flat"
       ? "22px"
-      : p.variant === "angled"
+      : p.$variant === "angled"
       ? "24px"
-      : p.variant === "notification"
+      : p.$variant === "notification"
       ? "20px"
       : "23px"};
   color: ${(p) =>
-    p.variant === "flat"
+    p.$variant === "flat"
       ? "#ffffff"
-      : p.variant === "angled"
+      : p.$variant === "angled"
       ? "#ffffff"
       : "var(--text-primary, #00796b)"};
   margin: 0;
@@ -80,14 +80,14 @@ const NavMenu = styled.nav`
   gap: 22px;
 
   a {
-    color: ${(p) => (p.variant === "angled" ? "#e0f7fa" : p.variant === "flat" ? "#ffffff" : "var(--text-secondary, #37474f)")};
+    color: ${(p) => (p.$variant === "angled" ? "#e0f7fa" : p.$variant === "flat" ? "#ffffff" : "var(--text-secondary, #37474f)")};
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
     opacity: 1;
 
     &:hover {
-      color: ${(p) => (p.variant === "angled" ? "#ffffff" : p.variant === "flat" ? "#e0f2f1" : "#009688")};
+      color: ${(p) => (p.$variant === "angled" ? "#ffffff" : p.$variant === "flat" ? "#e0f2f1" : "#009688")};
     }
   }
 
@@ -103,7 +103,7 @@ const SearchBar = styled.input`
   border: 1.5px solid var(--border-color, #e0e0e0);
   border-radius: 8px;
   padding: 8px 14px;
-  width: ${(p) => (p.variant === "with-search" ? "260px" : "220px")};
+  width: ${(p) => (p.$variant === "with-search" ? "260px" : "220px")};
   font-size: 14px;
   outline: none;
   color: var(--text-primary, #1e293b);
@@ -155,8 +155,8 @@ const ProfileArea = styled.div`
 `;
 
 const Button = styled.button`
-  background: ${(p) => (p.variant === "flat" ? "#ffffff" : "#009688")};
-  color: ${(p) => (p.variant === "flat" ? "#009688" : "#ffffff")};
+  background: ${(p) => (p.$variant === "flat" ? "#ffffff" : "#009688")};
+  color: ${(p) => (p.$variant === "flat" ? "#009688" : "#ffffff")};
   border: none;
   border-radius: 6px;
   padding: 8px 16px;
@@ -166,7 +166,7 @@ const Button = styled.button`
   opacity: 1;
 
   &:hover {
-    background: ${(p) => (p.variant === "flat" ? "#f5f5f5" : "#00796b")};
+    background: ${(p) => (p.$variant === "flat" ? "#f5f5f5" : "#00796b")};
     transform: translateY(-2px);
   }
 `;
@@ -187,18 +187,18 @@ export default function HeaderVariant({
   onButtonClick,
 }) {
   return (
-    <HeaderWrapper variant={variant}>
+    <HeaderWrapper $variant={variant}>
       {variant === "flat" && (
         <>
-          <Logo variant={variant}>{logo}</Logo>
-          <NavMenu variant={variant}>
+          <Logo $variant={variant}>{logo}</Logo>
+          <NavMenu $variant={variant}>
             {menuItems.map((item, idx) => (
               <a key={idx} href={item.href}>
                 {item.label}
               </a>
             ))}
           </NavMenu>
-          <Button variant={variant} onClick={onButtonClick}>
+          <Button $variant={variant} onClick={onButtonClick}>
             {buttonText}
           </Button>
         </>
@@ -206,15 +206,15 @@ export default function HeaderVariant({
 
       {variant === "angled" && (
         <>
-          <Logo variant={variant}>{logo}</Logo>
-          <NavMenu variant={variant}>
+          <Logo $variant={variant}>{logo}</Logo>
+          <NavMenu $variant={variant}>
             {menuItems.map((item, idx) => (
               <a key={idx} href={item.href}>
                 {item.label}
               </a>
             ))}
           </NavMenu>
-          <Button variant={variant} onClick={onButtonClick}>
+          <Button $variant={variant} onClick={onButtonClick}>
             {buttonText}
           </Button>
         </>
@@ -222,8 +222,8 @@ export default function HeaderVariant({
 
       {variant === "with-search" && (
         <>
-          <Logo variant={variant}>{logo}</Logo>
-          <SearchBar placeholder={searchPlaceholder} variant={variant} />
+          <Logo $variant={variant}>{logo}</Logo>
+          <SearchBar placeholder={searchPlaceholder} $variant={variant} />
           <IconArea>
             <Search size={22} />
             <Bell size={22} />
@@ -234,8 +234,8 @@ export default function HeaderVariant({
 
       {variant === "notification" && (
         <>
-          <Logo variant={variant}>{logo}</Logo>
-          <NavMenu variant={variant}>
+          <Logo $variant={variant}>{logo}</Logo>
+          <NavMenu $variant={variant}>
             {menuItems.map((item, idx) => (
               <a key={idx} href={item.href}>
                 {item.label}

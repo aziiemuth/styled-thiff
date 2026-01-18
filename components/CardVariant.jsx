@@ -4,57 +4,57 @@ import styled from "styled-components";
 
 const Card = styled.div`
   background: ${(p) =>
-    p.variant === "glass"
+    p.$variant === "glass"
       ? "rgba(255, 255, 255, 0.7)"
-      : p.variant === "neon"
+      : p.$variant === "neon"
       ? "#1a1a2e"
-      : p.variant === "pulse"
+      : p.$variant === "pulse"
       ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
       : "var(--bg-secondary, #fff)"};
   border-radius: ${(p) =>
-    p.variant === "photo-left"
+    p.$variant === "photo-left"
       ? "10px"
-      : p.variant === "overlay"
+      : p.$variant === "overlay"
       ? "16px"
-      : p.variant === "rounded"
+      : p.$variant === "rounded"
       ? "50px"
-      : p.variant === "glass"
+      : p.$variant === "glass"
       ? "20px"
-      : p.variant === "neon"
+      : p.$variant === "neon"
       ? "15px"
-      : p.variant === "pulse"
+      : p.$variant === "pulse"
       ? "16px"
       : "12px"};
   box-shadow: ${(p) =>
-    p.variant === "glass"
+    p.$variant === "glass"
       ? "0 8px 32px 0 rgba(31, 38, 135, 0.37)"
-      : p.variant === "neon"
+      : p.$variant === "neon"
       ? "0 0 20px rgba(138, 43, 226, 0.5)"
-      : p.variant === "pulse"
+      : p.$variant === "pulse"
       ? "0 8px 24px rgba(102, 126, 234, 0.4)"
       : "0 3px 8px rgba(0, 0, 0, 0.08)"};
   border: ${(p) =>
-    p.variant === "glass"
+    p.$variant === "glass"
       ? "1.5px solid rgba(255, 255, 255, 0.18)"
-      : p.variant === "neon"
+      : p.$variant === "neon"
       ? "2px solid #8a2be2"
-      : p.variant === "pulse"
+      : p.$variant === "pulse"
       ? "2px solid rgba(255, 255, 255, 0.3)"
       : "1.5px solid #e0e0e0"};
   outline: ${(p) =>
-    p.variant === "glass"
+    p.$variant === "glass"
       ? "1px solid rgba(138, 43, 226, 0.3)"
-      : p.variant === "neon"
+      : p.$variant === "neon"
       ? "1px solid rgba(138, 43, 226, 0.5)"
-      : p.variant === "pulse"
+      : p.$variant === "pulse"
       ? "1px solid rgba(102, 126, 234, 0.5)"
       : "1px solid rgba(0, 0, 0, 0.05)"};
   overflow: hidden;
-  display: ${(p) => (p.variant === "photo-left" ? "flex" : "block")};
+  display: ${(p) => (p.$variant === "photo-left" ? "flex" : "block")};
   position: relative;
   transition: all 0.3s ease;
-  backdrop-filter: ${(p) => (p.variant === "glass" ? "blur(10px)" : "none")};
-  animation: ${(p) => (p.variant === "pulse" ? "cardPulse 2s ease-in-out infinite" : "none")};
+  backdrop-filter: ${(p) => (p.$variant === "glass" ? "blur(10px)" : "none")};
+  animation: ${(p) => (p.$variant === "pulse" ? "cardPulse 2s ease-in-out infinite" : "none")};
 
   @keyframes cardPulse {
     0%, 100% {
@@ -69,34 +69,34 @@ const Card = styled.div`
 
   &:hover {
     outline-color: ${(p) =>
-      p.variant === "glass"
+      p.$variant === "glass"
         ? "#8a2be2"
-        : p.variant === "neon"
+        : p.$variant === "neon"
         ? "#ff00ff"
-        : p.variant === "pulse"
+        : p.$variant === "pulse"
         ? "rgba(255, 255, 255, 0.8)"
         : "#009688"};
-    transform: ${(p) => (p.variant === "pulse" ? "scale(1.05)" : "translateY(-4px)")};
+    transform: ${(p) => (p.$variant === "pulse" ? "scale(1.05)" : "translateY(-4px)")};
     box-shadow: ${(p) =>
-      p.variant === "glass"
+      p.$variant === "glass"
         ? "0 12px 40px 0 rgba(138, 43, 226, 0.5)"
-        : p.variant === "neon"
+        : p.$variant === "neon"
         ? "0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6)"
-        : p.variant === "pulse"
+        : p.$variant === "pulse"
         ? "0 16px 40px rgba(102, 126, 234, 0.7), 0 0 30px rgba(118, 75, 162, 0.5)"
         : "0 6px 12px rgba(0, 137, 123, 0.15)"};
-    animation: ${(p) => (p.variant === "pulse" ? "none" : "initial")};
+    animation: ${(p) => (p.$variant === "pulse" ? "none" : "initial")};
   }
 
   img {
-    width: ${(p) => (p.variant === "photo-left" ? "40%" : "100%")};
-    height: ${(p) => (p.variant === "overlay" ? "200px" : "180px")};
+    width: ${(p) => (p.$variant === "photo-left" ? "40%" : "100%")};
+    height: ${(p) => (p.$variant === "overlay" ? "200px" : "180px")};
     object-fit: cover;
   }
 
   .content {
-    padding: ${(p) => (p.variant === "glass" || p.variant === "neon" || p.variant === "pulse" ? "24px" : "16px")};
-    color: ${(p) => (p.variant === "neon" || p.variant === "pulse" ? "#fff" : "inherit")};
+    padding: ${(p) => (p.$variant === "glass" || p.$variant === "neon" || p.$variant === "pulse" ? "24px" : "16px")};
+    color: ${(p) => (p.$variant === "neon" || p.$variant === "pulse" ? "#fff" : "inherit")};
   }
 
   .overlay-text {
@@ -111,15 +111,15 @@ const Card = styled.div`
 
   /* Mobile Responsive */
   @media (max-width: 768px) {
-    flex-direction: ${(p) => (p.variant === "photo-left" ? "column" : "row")};
+    flex-direction: ${(p) => (p.$variant === "photo-left" ? "column" : "row")};
 
     img {
-      width: ${(p) => (p.variant === "photo-left" ? "100%" : "100%")};
-      height: ${(p) => (p.variant === "overlay" ? "180px" : "160px")};
+      width: ${(p) => (p.$variant === "photo-left" ? "100%" : "100%")};
+      height: ${(p) => (p.$variant === "overlay" ? "180px" : "160px")};
     }
 
     .content {
-      padding: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "20px" : "14px")};
+      padding: ${(p) => (p.$variant === "glass" || p.$variant === "neon" ? "20px" : "14px")};
     }
 
     .overlay-text {
@@ -131,14 +131,14 @@ const Card = styled.div`
 
   @media (max-width: 480px) {
     border-radius: ${(p) =>
-      p.variant === "rounded" ? "30px" : p.variant === "glass" ? "16px" : "10px"};
+      p.$variant === "rounded" ? "30px" : p.$variant === "glass" ? "16px" : "10px"};
 
     img {
-      height: ${(p) => (p.variant === "overlay" ? "160px" : "140px")};
+      height: ${(p) => (p.$variant === "overlay" ? "160px" : "140px")};
     }
 
     .content {
-      padding: ${(p) => (p.variant === "glass" || p.variant === "neon" ? "16px" : "12px")};
+      padding: ${(p) => (p.$variant === "glass" || p.$variant === "neon" ? "16px" : "12px")};
     }
 
     .overlay-text {
@@ -147,21 +147,21 @@ const Card = styled.div`
   }
 
   h3 {
-    font-size: ${(p) => (p.variant === "glass" || p.variant === "neon" || p.variant === "pulse" ? "20px" : "18px")};
+    font-size: ${(p) => (p.$variant === "glass" || p.$variant === "neon" || p.$variant === "pulse" ? "20px" : "18px")};
     font-weight: 700;
     margin: 0 0 12px 0;
     color: ${(p) =>
-      p.variant === "glass"
+      p.$variant === "glass"
         ? "#4a148c"
-        : p.variant === "neon"
+        : p.$variant === "neon"
         ? "#ff00ff"
-        : p.variant === "pulse"
+        : p.$variant === "pulse"
         ? "#fff"
         : "var(--text-primary, #1e293b)"};
     text-shadow: ${(p) =>
-      p.variant === "neon" 
+      p.$variant === "neon" 
         ? "0 0 10px rgba(255, 0, 255, 0.7)" 
-        : p.variant === "pulse"
+        : p.$variant === "pulse"
         ? "0 2px 8px rgba(0, 0, 0, 0.3)"
         : "none"};
   }
@@ -170,11 +170,11 @@ const Card = styled.div`
     font-size: 14px;
     line-height: 1.6;
     color: ${(p) =>
-      p.variant === "glass"
+      p.$variant === "glass"
         ? "#5e35b1"
-        : p.variant === "neon"
+        : p.$variant === "neon"
         ? "#b794f4"
-        : p.variant === "pulse"
+        : p.$variant === "pulse"
         ? "rgba(255, 255, 255, 0.9)"
         : "var(--text-secondary, #546e7a)"};
     margin: 0;
@@ -237,7 +237,7 @@ export default function CardVariant({
 }) {
   if (variant === "photo-left") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         {image && <img src={image} alt={title} />}
         <div className="content">
           <h3>{title}</h3>
@@ -249,7 +249,7 @@ export default function CardVariant({
 
   if (variant === "overlay") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         {image && <img src={image} alt={title} />}
         <div className="overlay-text">{content}</div>
       </Card>
@@ -258,7 +258,7 @@ export default function CardVariant({
 
   if (variant === "rounded") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         {image && <img src={image} alt={title} />}
         <div className="content">
           <h3>{title}</h3>
@@ -270,7 +270,7 @@ export default function CardVariant({
 
   if (variant === "glass") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         <GlassBadge>{badge}</GlassBadge>
         <div className="content">
           <h3>{title}</h3>
@@ -282,7 +282,7 @@ export default function CardVariant({
 
   if (variant === "neon") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         <NeonAccent />
         <div className="content">
           <NeonIcon>{neonIcon}</NeonIcon>
@@ -295,7 +295,7 @@ export default function CardVariant({
 
   if (variant === "pulse") {
     return (
-      <Card variant={variant}>
+      <Card $variant={variant}>
         <div className="content">
           <NeonIcon>✨</NeonIcon>
           <h3>{title}</h3>
@@ -306,7 +306,7 @@ export default function CardVariant({
   }
 
   return (
-    <Card variant={variant}>
+    <Card $variant={variant}>
       <div className="content">
         <h3>{title}</h3>
         <p>{content}</p>

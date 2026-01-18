@@ -7,19 +7,19 @@ const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: ${(p) =>
-    p.variant === "split"
+    p.$variant === "split"
       ? "space-between"
-      : p.variant === "social"
+      : p.$variant === "social"
       ? "center"
       : "center"};
-  flex-direction: ${(p) => (p.variant === "social" ? "column" : "row")};
+  flex-direction: ${(p) => (p.$variant === "social" ? "column" : "row")};
   background: ${(p) =>
-    p.variant === "split"
+    p.$variant === "split"
       ? "#f9fbfc"
-      : p.variant === "social"
+      : p.$variant === "social"
       ? "#00695c"
       : "#ffffff"};
-  color: ${(p) => (p.variant === "social" ? "#fff" : "#1e293b")};
+  color: ${(p) => (p.$variant === "social" ? "#fff" : "#1e293b")};
   padding: 30px 60px;
   border-radius: 16px;
   border: 1.5px solid #e0e0e0;
@@ -43,12 +43,12 @@ const Footer = styled.footer`
   }
 
   a {
-    color: ${(p) => (p.variant === "social" ? "#b2dfdb" : "#00796b")};
+    color: ${(p) => (p.$variant === "social" ? "#b2dfdb" : "#00796b")};
     text-decoration: none;
     font-weight: 500;
 
     &:hover {
-      color: ${(p) => (p.variant === "social" ? "#fff" : "#004d40")};
+      color: ${(p) => (p.$variant === "social" ? "#fff" : "#004d40")};
     }
   }
 `;
@@ -68,7 +68,7 @@ export default function FooterVariant({
   ],
 }) {
   return (
-    <Footer variant={variant}>
+    <Footer $variant={variant}>
       {variant === "simple" && <p>{copyrightText}</p>}
 
       {variant === "split" && (
